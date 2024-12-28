@@ -32,7 +32,7 @@
 
       .image-foreground {
         background-image: url("https://web.smmhub.app/static/media/barbie-without-bg.916c36eae894452c367a.jpeg");
-        clip-path: inset(0 50% 0 0); /* Початково показує ліву половину */
+        clip-path: inset(0 50% 0 0);
       }
       .image-background {
         background-image: url("https://web.smmhub.app/static/media/barbie-with-bg.cee11fb3098f8f901067.jpeg");
@@ -42,7 +42,6 @@
   <body>
     <section
       class="flex flex-col w-full max-w-[444px] mx-auto px-[20px] box-border overflow-y-scroll h-[100vh] min-h-[900px]">
-      <!-- Заголовок -->
       <div class="animate-fade-in">
         <div class="text-center mt-[16px]">
           <h1
@@ -51,7 +50,6 @@
           </h1>
         </div>
 
-        <!-- Прогрес -->
         <div class="flex justify-center items-center gap-2 mt-[18px]">
           <div
             class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
@@ -68,7 +66,6 @@
             class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
         </div>
 
-        <!-- Питання -->
         <div class="mt-[32px] text-center">
           <h1
             class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em]">
@@ -82,10 +79,8 @@
           </h3>
         </div>
 
-        <!-- Зображення -->
         <div
           class="relative w-full max-w-[404px] min-h-[460px] overflow-hidden">
-          <!-- Background Image -->
           <div
             class="absolute inset-0 bg-cover bg-center image-background"></div>
 
@@ -203,7 +198,7 @@
       }
 
       // Унікальний ідентифікатор сторінки
-      const pageId = "page-17";
+      const pageId = "page-24";
 
       // Оновлюємо опцію на основі значення в кукі
       document.addEventListener("DOMContentLoaded", () => {
@@ -213,7 +208,6 @@
         }
       });
 
-      // Логіка для кнопок
       document.getElementById("yesButton").addEventListener("click", () => {
         setCookie(`selectedOptions-${pageId}`, "Yes I use AI", 1);
         window.location.href = "page-18.html";
@@ -221,7 +215,7 @@
 
       document.getElementById("noButton").addEventListener("click", () => {
         setCookie(`selectedOptions-${pageId}`, "Dont use AI", 1);
-        window.location.href = "page-18.html";
+        window.location.href = "page-25.html";
       });
     </script>
   </body>
