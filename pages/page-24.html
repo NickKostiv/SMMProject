@@ -69,7 +69,7 @@
         <div class="mt-[32px] text-center">
           <h1
             class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em]">
-            AI Automation
+            Preferences
           </h1>
           <h3
             class="text-[24px] text-start font-bold leading-[34px] tracking-[0em] mt-[16px]">
@@ -118,27 +118,22 @@
       const foreground = document.getElementById("foreground");
       let isDragging = false;
 
-      // Блокування скролу сторінки
       function preventScroll(e) {
         e.preventDefault();
       }
 
-      // Початок перетягування (дотик та мишка)
       slider.addEventListener("mousedown", startDrag);
       slider.addEventListener("touchstart", startDrag, { passive: false }); // passive: false дозволяє блокувати скрол
 
-      // Завершення перетягування (дотик та мишка)
       document.addEventListener("mouseup", stopDrag);
       document.addEventListener("touchend", stopDrag);
 
-      // Переміщення лінії (дотик та мишка)
       document.addEventListener("mousemove", moveSlider);
       document.addEventListener("touchmove", moveSlider, { passive: false }); // passive: false дозволяє блокувати скрол
 
       function startDrag(e) {
         isDragging = true;
 
-        // Блокування скролу під час перетягування
         document.body.addEventListener("touchmove", preventScroll, {
           passive: false,
         });
@@ -147,7 +142,6 @@
       function stopDrag() {
         isDragging = false;
 
-        // Відновлення скролу після завершення перетягування
         document.body.removeEventListener("touchmove", preventScroll);
       }
 
@@ -158,25 +152,20 @@
         const rect = container.getBoundingClientRect();
         let newX;
 
-        // Визначаємо позицію для мишки чи дотику
         if (e.touches) {
           newX = e.touches[0].clientX - rect.left;
         } else {
           newX = e.clientX - rect.left;
         }
 
-        // Обмеження для переміщення лінії
         newX = Math.max(0, Math.min(newX, rect.width));
 
-        // Переміщення розділової лінії
         slider.style.left = `${newX}px`;
 
-        // Оновлення видимої області переднього зображення
         const percentage = (newX / rect.width) * 100;
         foreground.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
       }
 
-      // Функція для отримання конкретного кукі
       function getCookie(name) {
         const cookies = document.cookie.split("; ");
         for (let cookie of cookies) {
@@ -188,7 +177,6 @@
         return null;
       }
 
-      // Функція для встановлення кукі
       function setCookie(name, value, days) {
         const date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -197,10 +185,8 @@
         )}; expires=${date.toUTCString()}; path=/`;
       }
 
-      // Унікальний ідентифікатор сторінки
       const pageId = "page-24";
 
-      // Оновлюємо опцію на основі значення в кукі
       document.addEventListener("DOMContentLoaded", () => {
         const savedValue = getCookie(`selectedOptions-${pageId}`);
         if (savedValue) {
@@ -210,7 +196,7 @@
 
       document.getElementById("yesButton").addEventListener("click", () => {
         setCookie(`selectedOptions-${pageId}`, "Yes I use AI", 1);
-        window.location.href = "page-18.html";
+        window.location.href = "page-25.html";
       });
 
       document.getElementById("noButton").addEventListener("click", () => {

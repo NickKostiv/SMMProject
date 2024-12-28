@@ -34,7 +34,6 @@
   <body>
     <section
       class="flex flex-col w-full max-w-[444px] mx-auto px-[20px] box-border overflow-y-scroll h-[100vh] min-h-[700px]">
-      <!-- Заголовок -->
       <div class="animate-fade-in">
         <div class="text-center mt-[16px]">
           <h1
@@ -43,8 +42,11 @@
           </h1>
         </div>
 
-        <!-- Прогрес -->
         <div class="flex justify-center items-center gap-2 mt-[18px]">
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
           <div
             class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
           <div
@@ -53,34 +55,30 @@
             class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
           <div class="w-[28px] h-[8px] bg-[#00c891] rounded-full"></div>
           <div
-            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-          <div
-            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-          <div
             class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
         </div>
 
-        <!-- Питання -->
         <div class="mt-[32px] text-center">
           <h1
             class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em]">
-            AI Automation
+            Preferences
           </h1>
           <h3
             class="text-[24px] text-start font-bold leading-[34px] tracking-[0em] mt-[16px]">
-            Do you use AI to create content?
+            Do you use Outlines for
+            <br />
+            your pictures?
           </h3>
         </div>
 
-        <!-- Зображення -->
-        <div class="flex justify-center mt-[20px]">
+        <div class="flex justify-center">
           <img
-            src="/assets/ai-to-create-content.55abab06973120b8d7d4.png"
+            src="/assets/preference-compare-4.c5ba46babb5a5d3a5c22.png"
             class="w-full mx-auto mt-[40px]"
             alt="Take a short quiz illustration" />
         </div>
       </div>
-      <!-- Кнопки -->
+
       <div
         class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50 px-[20px] pb-[20px]">
         <div class="flex justify-between max-w-[404px] mx-auto gap-4">
@@ -98,7 +96,6 @@
       </div>
     </section>
     <script>
-      // Функція для отримання конкретного кукі
       function getCookie(name) {
         const cookies = document.cookie.split("; ");
         for (let cookie of cookies) {
@@ -110,7 +107,6 @@
         return null;
       }
 
-      // Функція для встановлення кукі
       function setCookie(name, value, days) {
         const date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -119,10 +115,8 @@
         )}; expires=${date.toUTCString()}; path=/`;
       }
 
-      // Унікальний ідентифікатор сторінки
-      const pageId = "page-17";
+      const pageId = "page-25";
 
-      // Оновлюємо опцію на основі значення в кукі
       document.addEventListener("DOMContentLoaded", () => {
         const savedValue = getCookie(`selectedOptions-${pageId}`);
         if (savedValue) {
@@ -130,15 +124,22 @@
         }
       });
 
-      // Логіка для кнопок
       document.getElementById("yesButton").addEventListener("click", () => {
-        setCookie(`selectedOptions-${pageId}`, "Yes I use AI", 1);
-        window.location.href = "page-18.html";
+        setCookie(
+          `selectedOptions-${pageId}`,
+          "Yes I use Outlines for content creation",
+          1
+        );
+        window.location.href = "page-26.html";
       });
 
       document.getElementById("noButton").addEventListener("click", () => {
-        setCookie(`selectedOptions-${pageId}`, "Dont use AI", 1);
-        window.location.href = "page-18.html";
+        setCookie(
+          `selectedOptions-${pageId}`,
+          "No I dont use Outlines for content creation",
+          1
+        );
+        window.location.href = "page-26.html";
       });
     </script>
   </body>

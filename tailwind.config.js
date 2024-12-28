@@ -3,6 +3,9 @@ module.exports = {
   content: ["./**/*.html"],
   theme: {
     extend: {
+      colors: {
+        "custom-dark-blue": "rgb(2, 8, 45)",
+      },
       fontFamily: {
         montserrat: ["Montserrat"],
         monsans: [

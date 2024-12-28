@@ -40,7 +40,6 @@
           SMMHUB
         </h1>
       </div>
-      <!-- Progress Indicator -->
       <div class="flex justify-center items-center gap-2 mt-[18px]">
         <div
           class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
@@ -48,25 +47,26 @@
           class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
         <div
           class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
         <div class="w-[28px] h-[8px] bg-[#00c891] rounded-full"></div>
-        <div
-          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-        <div
-          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-        <div
-          class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
       </div>
 
-      <!-- Header -->
       <div class="text-center px-6">
         <h1
           class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em] text-center mt-[18px]">
-          Your Instagram activity
+          Set Your Goal
         </h1>
 
         <h2
           class="w-full font-montserrat text-[24px] font-bold leading-[34px] tracking-[0em] text-left my-[24px] mb-[16px]">
-          How many time do you spend creating content?
+          What is your monthly
+          <br />
+          income goal?
         </h2>
       </div>
 
@@ -74,50 +74,42 @@
       <div id="options" class="px-6 space-y-[8px]">
         <button
           class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="1 Hour A Week">
+          data-value="1000$">
           <p
             class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            1 Hour A Week
+            1000$
           </p>
         </button>
         <button
           class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="2-3 Hour A Week">
+          data-value="1000$-5000$">
           <p
             class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            2-3 Hour A Week
+            1000$ - 5000$
           </p>
         </button>
         <button
           class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="4-5 Hour A Week">
+          data-value="5000$-10000$">
           <p
             class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            4-5 Hour A Week
+            5000$ - 10000$
           </p>
         </button>
         <button
           class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="5-10 Hour A Week">
+          data-value="10000$-150000">
           <p
             class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            5-10 Hour A Week
+            10000$ - 150000
           </p>
         </button>
         <button
           class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="10-20 Hours A Week">
+          data-value="PreferNotToAnswer">
           <p
             class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            10-20 Hours A Week
-          </p>
-        </button>
-        <button
-          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="20+ Hours A Week">
-          <p
-            class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            20+ Hours A Week
+            Prefer Not To Answer
           </p>
         </button>
       </div>
@@ -135,14 +127,13 @@
               id="nextButton"
               class="py-[8px] relative h-[60px] box-border cursor-not-allowed select-none align-middle appearance-none text-white bg-gray-200 w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px]"
               disabled>
-              Next
+              Continue
             </button>
           </div>
         </div>
       </div>
     </div>
     <script>
-      // Функція для отримання конкретного кукі
       function getCookie(name) {
         const cookies = document.cookie.split("; ");
         for (let cookie of cookies) {
@@ -154,7 +145,6 @@
         return null;
       }
 
-      // Функція для встановлення кукі
       function setCookie(name, value, days) {
         const date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -163,15 +153,12 @@
         )}; expires=${date.toUTCString()}; path=/`;
       }
 
-      // Логіка роботи з кнопками
       const options = document.getElementById("options");
       const hiddenInput = document.getElementById("hiddenInput");
       const nextButton = document.getElementById("nextButton");
 
-      // Унікальний ідентифікатор сторінки
-      const pageId = "page-10"; // Змінюйте це на "page-8", "page-9" тощо для кожної сторінки
+      const pageId = "page-28";
 
-      // Функція для оновлення стану кнопки Next
       function updateNextButton(isOptionSelected) {
         if (isOptionSelected) {
           nextButton.style.backgroundColor = "rgb(2, 8, 45)";
@@ -186,30 +173,25 @@
         }
       }
 
-      // Функція для скидання стилів всіх опцій
       function resetOptions() {
         document.querySelectorAll(".option").forEach(option => {
           option.classList.remove("bg-[#00c891]", "text-white");
-          option.classList.add("bg-gray-100", "text-[#535c6e]"); // Скидання до дефолтного стану
+          option.classList.add("bg-gray-100", "text-[#535c6e]");
         });
       }
 
-      // При завантаженні сторінки
       document.addEventListener("DOMContentLoaded", () => {
         const savedValue = getCookie(`selectedOptions-${pageId}`);
         let isOptionSelected = false;
 
-        // Скидаємо стилі всіх опцій
         resetOptions();
 
-        // Оновлюємо опцію на основі значення в кукі
         if (savedValue) {
           const selectedOption = Array.from(
             document.querySelectorAll(".option")
           ).find(option => option.dataset.value === JSON.parse(savedValue));
 
           if (selectedOption) {
-            // Активуємо опцію
             selectedOption.classList.add("bg-[#00c891]", "text-white");
             selectedOption.classList.remove("bg-gray-100", "text-[#535c6e]");
             hiddenInput.value = JSON.parse(savedValue);
@@ -217,41 +199,32 @@
           }
         }
 
-        // Оновлюємо стан кнопки Next
         updateNextButton(isOptionSelected);
       });
 
-      // Логіка для кліків по опціях
       options.addEventListener("click", e => {
         if (e.target.closest(".option")) {
           const option = e.target.closest(".option");
 
-          // Скидаємо всі стилі
           resetOptions();
 
-          // Встановлюємо активну опцію
           option.classList.remove("bg-gray-100", "text-[#535c6e]");
           option.classList.add("bg-[#00c891]", "text-white");
 
           const selectedValue = option.dataset.value;
 
-          // Оновлюємо приховане поле
           hiddenInput.value = selectedValue;
 
-          // Оновлюємо стан кнопки Next
           updateNextButton(true);
         }
       });
 
-      // Логіка для кнопки Next
       nextButton.addEventListener("click", () => {
         const selectedValue = hiddenInput.value;
         if (selectedValue) {
-          // Зберігаємо значення для цієї сторінки в кукі
           setCookie(`selectedOptions-${pageId}`, selectedValue, 1);
 
-          // Переходимо на наступну сторінку
-          window.location.href = "page-11.html";
+          window.location.href = "page-29.html";
         }
       });
     </script>
