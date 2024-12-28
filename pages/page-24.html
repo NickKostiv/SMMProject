@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+        font-size: 22px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .image-foreground {
+        background-image: url("https://web.smmhub.app/static/media/barbie-without-bg.916c36eae894452c367a.jpeg");
+        clip-path: inset(0 50% 0 0); /* Початково показує ліву половину */
+      }
+      .image-background {
+        background-image: url("https://web.smmhub.app/static/media/barbie-with-bg.cee11fb3098f8f901067.jpeg");
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      class="flex flex-col w-full max-w-[444px] mx-auto px-[20px] box-border overflow-y-scroll h-[100vh] min-h-[900px]">
+      <!-- Заголовок -->
+      <div class="animate-fade-in">
+        <div class="text-center mt-[16px]">
+          <h1
+            class="text-[rgb(47,47,55)] font-montserrat text-[20px] font-semibold leading-[28px] tracking-[0.5em]">
+            SMMHUB
+          </h1>
+        </div>
+
+        <!-- Прогрес -->
+        <div class="flex justify-center items-center gap-2 mt-[18px]">
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div class="w-[28px] h-[8px] bg-[#00c891] rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
+        </div>
+
+        <!-- Питання -->
+        <div class="mt-[32px] text-center">
+          <h1
+            class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em]">
+            AI Automation
+          </h1>
+          <h3
+            class="text-[24px] text-start font-bold leading-[34px] tracking-[0em] mt-[16px]">
+            Do you use AI Background
+            <br />
+            remover tool?
+          </h3>
+        </div>
+
+        <!-- Зображення -->
+        <div
+          class="relative w-full max-w-[404px] min-h-[460px] overflow-hidden">
+          <!-- Background Image -->
+          <div
+            class="absolute inset-0 bg-cover bg-center image-background"></div>
+
+          <!-- Foreground Image -->
+          <div
+            id="foreground"
+            class="absolute inset-0 bg-cover bg-center image-foreground"></div>
+
+          <!-- Slider -->
+          <div
+            id="slider"
+            class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10"
+            style="left: 50%"></div>
+        </div>
+      </div>
+      <!-- Кнопки -->
+      <div
+        class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50 px-[20px] pb-[20px]">
+        <div class="flex justify-between max-w-[404px] mx-auto gap-4">
+          <button
+            id="yesButton"
+            class="flex-1 py-[8px] h-[60px] cursor-pointer select-none text-[#02082d] bg-white border border-[#02082d] active:bg-gray-400 transition-colors duration-30 rounded-[12px] text-base font-semibold leading-5">
+            Yes
+          </button>
+          <button
+            id="noButton"
+            class="flex-1 py-[8px] h-[60px] cursor-pointer select-none text-white bg-[#02082d] active:bg-gray-600 transition-colors duration-30 rounded-[12px] text-base font-semibold leading-5">
+            No
+          </button>
+        </div>
+      </div>
+    </section>
+    <script>
+      const slider = document.getElementById("slider");
+      const foreground = document.getElementById("foreground");
+      let isDragging = false;
+
+      // Блокування скролу сторінки
+      function preventScroll(e) {
+        e.preventDefault();
+      }
+
+      // Початок перетягування (дотик та мишка)
+      slider.addEventListener("mousedown", startDrag);
+      slider.addEventListener("touchstart", startDrag, { passive: false }); // passive: false дозволяє блокувати скрол
+
+      // Завершення перетягування (дотик та мишка)
+      document.addEventListener("mouseup", stopDrag);
+      document.addEventListener("touchend", stopDrag);
+
+      // Переміщення лінії (дотик та мишка)
+      document.addEventListener("mousemove", moveSlider);
+      document.addEventListener("touchmove", moveSlider, { passive: false }); // passive: false дозволяє блокувати скрол
+
+      function startDrag(e) {
+        isDragging = true;
+
+        // Блокування скролу під час перетягування
+        document.body.addEventListener("touchmove", preventScroll, {
+          passive: false,
+        });
+      }
+
+      function stopDrag() {
+        isDragging = false;
+
+        // Відновлення скролу після завершення перетягування
+        document.body.removeEventListener("touchmove", preventScroll);
+      }
+
+      function moveSlider(e) {
+        if (!isDragging) return;
+
+        const container = slider.parentElement;
+        const rect = container.getBoundingClientRect();
+        let newX;
+
+        // Визначаємо позицію для мишки чи дотику
+        if (e.touches) {
+          newX = e.touches[0].clientX - rect.left;
+        } else {
+          newX = e.clientX - rect.left;
+        }
+
+        // Обмеження для переміщення лінії
+        newX = Math.max(0, Math.min(newX, rect.width));
+
+        // Переміщення розділової лінії
+        slider.style.left = `${newX}px`;
+
+        // Оновлення видимої області переднього зображення
+        const percentage = (newX / rect.width) * 100;
+        foreground.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+      }
+
+      // Функція для отримання конкретного кукі
+      function getCookie(name) {
+        const cookies = document.cookie.split("; ");
+        for (let cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) {
+            return decodeURIComponent(value);
+          }
+        }
+        return null;
+      }
+
+      // Функція для встановлення кукі
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${encodeURIComponent(
+          JSON.stringify(value)
+        )}; expires=${date.toUTCString()}; path=/`;
+      }
+
+      // Унікальний ідентифікатор сторінки
+      const pageId = "page-17";
+
+      // Оновлюємо опцію на основі значення в кукі
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedValue = getCookie(`selectedOptions-${pageId}`);
+        if (savedValue) {
+          console.log("Saved value from cookie:", JSON.parse(savedValue));
+        }
+      });
+
+      // Логіка для кнопок
+      document.getElementById("yesButton").addEventListener("click", () => {
+        setCookie(`selectedOptions-${pageId}`, "Yes I use AI", 1);
+        window.location.href = "page-18.html";
+      });
+
+      document.getElementById("noButton").addEventListener("click", () => {
+        setCookie(`selectedOptions-${pageId}`, "Dont use AI", 1);
+        window.location.href = "page-18.html";
+      });
+    </script>
+  </body>
+</html>

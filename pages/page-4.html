@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+        font-size: 22px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="flex justify-center min-h-screen animate-fade-in">
+      <div
+        class="text-black mt-[268px] px-[20px] max-w-[444px] flex-col text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+        <h3
+          class="px-[24px] text-[24px] tracking-[0em] font-bold leading-[34px]">
+          And there is one thing <br>
+          that could help you to <br>
+          create content easily...
+      </div>
+
+      <div class="footer fixed bottom-[20px] left-0 right-0 animate-fade-in">
+        <div class="w-full flex justify-center items-center px-[20px]">
+          <button
+            class="py-[8px] h-[60px] box-border cursor-pointer select-none align-middle appearance-none text-white bg-gray-900 w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px]">
+            <a href="page-5.html">Continue</a>
+          </button>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script></script>
+</html>

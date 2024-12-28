@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SMMHUB</title>
+  </head>
+  <body
+    class="bg-gray-50 flex justify-center items-center min-h-screen font-sans">
+    <div
+      class="w-full max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+      <!-- Progress Indicator -->
+      <div class="flex justify-center items-center gap-2 p-4">
+        <div class="w-2.5 h-2.5 bg-gray-300 rounded-full"></div>
+        <div class="w-4 h-2.5 bg-green-500 rounded-full"></div>
+        <div class="w-2.5 h-2.5 bg-gray-300 rounded-full"></div>
+        <div class="w-2.5 h-2.5 bg-gray-300 rounded-full"></div>
+        <div class="w-2.5 h-2.5 bg-gray-300 rounded-full"></div>
+      </div>
+
+      <!-- Header -->
+      <div class="text-center px-6">
+        <h1 class="text-gray-900 text-lg font-semibold mb-2">Goal</h1>
+        <h2 class="text-xl font-bold mb-4">What is your primary goal?</h2>
+      </div>
+
+      <!-- Options -->
+      <div id="options" class="px-6 space-y-4">
+        <button
+          class="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg flex items-center justify-start border border-transparent hover:border-gray-300 transition option"
+          data-value="Grow Followers">
+          📈 Grow Followers
+        </button>
+        <button
+          class="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg flex items-center justify-start border border-transparent hover:border-gray-300 transition option"
+          data-value="Boost Engagement">
+          🚀 Boost Engagement
+        </button>
+        <button
+          class="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg flex items-center justify-start border border-transparent hover:border-gray-300 transition option"
+          data-value="Gain More Sales For My Business">
+          💰 Gain More Sales For My Business
+        </button>
+        <button
+          class="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg flex items-center justify-start border border-transparent hover:border-gray-300 transition option"
+          data-value="Get Higher Engagement Rate">
+          😄 Get Higher Engagement Rate
+        </button>
+        <button
+          class="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg flex items-center justify-start border border-transparent hover:border-gray-300 transition option"
+          data-value="Automate Content Creation">
+          🤖 Automate Content Creation
+        </button>
+      </div>
+
+      <!-- Hidden Input -->
+      <input type="hidden" id="hiddenInput" name="selectedOption" />
+
+      <!-- Next Button -->
+      <div class="p-6">
+        <button
+          id="nextButton"
+          class="w-full bg-gray-200 text-gray-500 py-3 px-4 rounded-lg font-semibold cursor-not-allowed"
+          disabled>
+          Next
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Функція для встановлення cookie
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+      }
+
+      // Функція для отримання cookie
+      function getCookie(name) {
+        const cookies = document.cookie.split("; ");
+        for (let cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) {
+            return decodeURIComponent(value);
+          }
+        }
+        return null;
+      }
+
+      // Логіка для вибору
+      const options = document.getElementById("options");
+      const hiddenInput = document.getElementById("hiddenInput");
+      const nextButton = document.getElementById("nextButton");
+
+      options.addEventListener("click", e => {
+        if (e.target.classList.contains("option")) {
+          // Знімаємо попередній вибір
+          document.querySelectorAll(".option").forEach(option => {
+            option.classList.remove(
+              "bg-green-500",
+              "text-white",
+              "border-green-500"
+            );
+            option.classList.add("bg-gray-100", "text-gray-700");
+          });
+
+          // Встановлюємо новий вибір
+          e.target.classList.remove("bg-gray-100", "text-gray-700");
+          e.target.classList.add(
+            "bg-green-500",
+            "text-white",
+            "border-green-500"
+          );
+          const selectedValue = e.target.dataset.value;
+
+          // Зберігаємо у cookie
+          setCookie("selectedOption", selectedValue, 1);
+
+          // Оновлюємо приховане поле для форми
+          hiddenInput.value = selectedValue;
+
+          // Увімкнення кнопки Next
+          nextButton.classList.remove(
+            "bg-gray-200",
+            "text-gray-500",
+            "cursor-not-allowed"
+          );
+          nextButton.classList.add(
+            "bg-blue-800",
+            "text-white",
+            "cursor-pointer"
+          );
+          nextButton.disabled = false;
+        }
+      });
+
+      // При завантаженні сторінки перевіряємо cookie
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedValue = getCookie("selectedOption");
+        if (savedValue) {
+          // Відновлюємо вибір
+          const selectedOption = Array.from(
+            document.querySelectorAll(".option")
+          ).find(option => option.dataset.value === savedValue);
+          if (selectedOption) {
+            selectedOption.classList.add(
+              "bg-green-500",
+              "text-white",
+              "border-green-500"
+            );
+          }
+
+          // Заповнюємо приховане поле
+          hiddenInput.value = savedValue;
+
+          // Увімкнення кнопки Next
+          nextButton.classList.remove(
+            "bg-gray-200",
+            "text-gray-500",
+            "cursor-not-allowed"
+          );
+          nextButton.classList.add(
+            "bg-blue-800",
+            "text-white",
+            "cursor-pointer"
+          );
+          nextButton.disabled = false;
+        }
+      });
+
+      // Кнопка Next
+      nextButton.addEventListener("click", () => {
+        const selectedValue = hiddenInput.value;
+        if (selectedValue) {
+          alert(`You selected: ${selectedValue}`);
+          // Можна додати перехід на іншу сторінку
+        }
+      });
+    </script>
+  </body>
+</html>

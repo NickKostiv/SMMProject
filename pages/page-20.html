@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+        font-size: 22px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      class="flex flex-col w-full max-w-[444px] mx-auto px-[20px] box-border overflow-y-scroll h-[100vh] min-h-[700px] animate-fade-in">
+      <!-- Заголовок -->
+      <div class="text-center mt-[16px]">
+        <h1
+          class="text-[rgb(47,47,55)] font-montserrat text-[20px] font-semibold leading-[28px] tracking-[0.5em]">
+          SMMHUB
+        </h1>
+      </div>
+
+      <!-- Прогрес -->
+      <div class="flex justify-center items-center gap-2 mt-[18px]">
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div class="w-[28px] h-[8px] bg-[#00c891] rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
+      </div>
+
+      <!-- Питання -->
+      <div class="mt-[32px] text-center">
+        <h1
+          class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em]">
+          Customization
+        </h1>
+        <h3
+          class="text-[24px] text-start font-bold leading-[34px] tracking-[0em] mt-[16px]">
+          Do you know how to monetize your Instagram?
+        </h3>
+      </div>
+
+      <!-- Зображення -->
+      <div class="flex justify-center mt-[20px]">
+        <img
+          src="/assets/how-to-monetize.ef6fe9421eb2a15731ae.png"
+          class="w-full mx-auto mt-[40px]"
+          alt="Take a short quiz illustration" />
+      </div>
+
+      <!-- Кнопки -->
+      <div
+        class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50 px-[20px] pb-[20px]">
+        <div class="flex justify-between max-w-[404px] mx-auto gap-4">
+          <button
+            id="yesButton"
+            class="flex-1 py-[8px] h-[60px] cursor-pointer select-none text-[#02082d] bg-white border border-[#02082d] active:bg-gray-400 transition-colors duration-30 rounded-[12px] text-base font-semibold leading-5">
+            Yes
+          </button>
+          <button
+            id="noButton"
+            class="flex-1 py-[8px] h-[60px] cursor-pointer select-none text-white bg-[#02082d] active:bg-gray-600 transition-colors duration-30 rounded-[12px] text-base font-semibold leading-5">
+            No
+          </button>
+        </div>
+      </div>
+    </section>
+    <script>
+      // Функція для отримання конкретного кукі
+      function getCookie(name) {
+        const cookies = document.cookie.split("; ");
+        for (let cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) {
+            return decodeURIComponent(value);
+          }
+        }
+        return null;
+      }
+
+      // Функція для встановлення кукі
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${encodeURIComponent(
+          JSON.stringify(value)
+        )}; expires=${date.toUTCString()}; path=/`;
+      }
+
+      // Унікальний ідентифікатор сторінки
+      const pageId = "page-20";
+
+      // Оновлюємо опцію на основі значення в кукі
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedValue = getCookie(`selectedOptions-${pageId}`);
+        if (savedValue) {
+          console.log("Saved value from cookie:", JSON.parse(savedValue));
+        }
+      });
+
+      // Логіка для кнопок
+      document.getElementById("yesButton").addEventListener("click", () => {
+        setCookie(`selectedOptions-${pageId}`, "Yes I Know how to monetize", 1);
+        window.location.href = "page-21.html";
+      });
+
+      document.getElementById("noButton").addEventListener("click", () => {
+        setCookie(
+          `selectedOptions-${pageId}`,
+          "No I dont know how to monetize",
+          1
+        );
+        window.location.href = "page-21.html";
+      });
+    </script>
+  </body>
+</html>

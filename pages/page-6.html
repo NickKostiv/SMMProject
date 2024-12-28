@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+        font-size: 22px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      class="flex flex-col w-full max-w-[444px] mx-auto min-h-screen px-[20px] box-border overflow-y-scroll animate-fade-in">
+      <!--
+  Зображення
+  -->
+      <div class="flex justify-center mt-[40px]">
+        <img
+          src="/assets/take-short-quiz.66b304846087f012f414.png"
+          class="w-full mx-auto"
+          alt="Take a short quiz illustration" />
+      </div>
+
+      <!-- Текст -->
+      <div
+        class="flex-1 pb-[10px] flex justify-center items-center text-black text-[16px] font-normal leading-[26px] tracking-[-0.02em] text-[#465063] text-center">
+        <h3
+          class="text-[24px] font-bold leading-[34px] tracking-[0em] px-[20px]">
+          Take a short quiz so we
+          <br />
+          can estimate your
+          <br />
+          potential growth
+        </h3>
+      </div>
+
+      <!-- Кнопка -->
+      <div
+        class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50">
+        <div class="relative">
+          <div
+            class="w-full relative flex justify-center items-center px-[20px] pb-[20px]">
+            <button
+              class="py-[8px] relative h-[60px] box-border cursor-pointer select-none align-middle appearance-none text-white bg-gray-900 w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px]">
+              <a href="page-7.html">Let's Go!</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script></script>
+</html>

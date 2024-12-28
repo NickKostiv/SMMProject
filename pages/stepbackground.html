@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Removal Comparison</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .image-foreground {
+        background-image: url("https://web.smmhub.app/static/media/barbie-without-bg.916c36eae894452c367a.jpeg");
+        clip-path: inset(0 50% 0 0); /* Початково показує ліву половину */
+      }
+      .image-background {
+        background-image: url("https://web.smmhub.app/static/media/barbie-with-bg.cee11fb3098f8f901067.jpeg");
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="relative w-[500px] h-[500px] overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 bg-cover bg-center image-background"></div>
+
+      <!-- Foreground Image -->
+      <div
+        id="foreground"
+        class="absolute inset-0 bg-cover bg-center image-foreground"></div>
+
+      <!-- Slider -->
+      <div
+        id="slider"
+        class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10"
+        style="left: 50%"></div>
+    </div>
+
+    <script>
+      const slider = document.getElementById("slider");
+      const foreground = document.getElementById("foreground");
+      let isDragging = false;
+
+      // Початок перетягування
+      slider.addEventListener("mousedown", () => {
+        isDragging = true;
+      });
+
+      // Завершення перетягування
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+      });
+
+      // Переміщення лінії
+      document.addEventListener("mousemove", e => {
+        if (!isDragging) return;
+
+        const container = slider.parentElement;
+        const rect = container.getBoundingClientRect();
+        let newX = e.clientX - rect.left;
+
+        // Обмеження для переміщення лінії
+        newX = Math.max(0, Math.min(newX, rect.width));
+
+        // Переміщення розділової лінії
+        slider.style.left = `${newX}px`;
+
+        // Оновлення видимої області переднього зображення
+        const percentage = (newX / rect.width) * 100;
+        foreground.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+      });
+    </script>
+  </body>
+</html>

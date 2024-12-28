@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 flex justify-center min-h-screen font-sans">
+    <div
+      class="w-full max-w-md mx-auto rounded-[16px] overflow-hidden mt-[8px] animate-fade-in">
+      <div class="text-center">
+        <h1
+          class="text-[rgb(47,47,55)] font-montserrat text-[20px] font-semibold leading-[28px] tracking-[10px] text-center">
+          SMMHUB
+        </h1>
+      </div>
+      <!-- Progress Indicator -->
+      <div class="flex justify-center items-center gap-2 mt-[18px]">
+        <div class="w-[28px] h-[8px] bg-[#00c891] rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
+      </div>
+
+      <!-- Header -->
+      <div class="text-center px-6">
+        <h1
+          class="text-[#535c6e] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em] text-center mt-[18px]">
+          Goal
+        </h1>
+
+        <h2
+          class="w-full font-montserrat text-[24px] font-bold leading-[34px] tracking-[0em] text-left my-[24px] mb-[16px]">
+          What is your primary
+          <br />
+          goal?
+        </h2>
+      </div>
+
+      <!-- Options -->
+      <div id="options" class="px-6 space-y-[8px]">
+        <button
+          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+          data-value="Grow Followers">
+          <p
+            class="font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+            📈 Grow Followers
+          </p>
+        </button>
+        <button
+          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+          data-value="Boost Engagement">
+          <p
+            class="font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+            🚀 Boost Engagement
+          </p>
+        </button>
+        <button
+          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+          data-value="Gain More Sales For My Business">
+          <p
+            class="font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+            💰 Gain More Sales For My Business
+          </p>
+        </button>
+        <button
+          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+          data-value="Get Higher Engagement Rate">
+          <p
+            class="font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+            😄 Get Higher Engagement Rate
+          </p>
+        </button>
+        <button
+          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+          data-value="Automate Content Creation">
+          <p
+            class="font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+            🤖 Automate Content Creation
+          </p>
+        </button>
+      </div>
+
+      <!-- Hidden Input -->
+      <input type="hidden" id="hiddenInput" name="selectedOption" />
+
+      <!-- Next Button -->
+      <div
+        class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50">
+        <div class="relative">
+          <div
+            class="w-full relative flex justify-center items-center px-[20px] pb-[20px]">
+            <button
+              id="nextButton"
+              class="py-[8px] relative h-[60px] box-border cursor-not-allowed select-none align-middle appearance-none text-white bg-gray-200 w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px]"
+              disabled>
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Функція для отримання конкретного кукі
+      function getCookie(name) {
+        const cookies = document.cookie.split("; ");
+        for (let cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) {
+            return decodeURIComponent(value);
+          }
+        }
+        return null;
+      }
+
+      // Функція для встановлення кукі
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${encodeURIComponent(
+          JSON.stringify(value)
+        )}; expires=${date.toUTCString()}; path=/`;
+      }
+
+      // Логіка роботи з кнопками
+      const options = document.getElementById("options");
+      const hiddenInput = document.getElementById("hiddenInput");
+      const nextButton = document.getElementById("nextButton");
+
+      // Унікальний ідентифікатор сторінки
+      const pageId = "page-7"; // Змінюйте це на "page-8", "page-9" тощо для кожної сторінки
+
+      // Функція для оновлення стану кнопки Next
+      function updateNextButton(isOptionSelected) {
+        if (isOptionSelected) {
+          nextButton.style.backgroundColor = "rgb(2, 8, 45)";
+          nextButton.classList.remove("cursor-not-allowed");
+          nextButton.classList.add("cursor-pointer");
+          nextButton.disabled = false;
+        } else {
+          nextButton.style.backgroundColor = "#e0e0e0";
+          nextButton.classList.add("cursor-not-allowed");
+          nextButton.classList.remove("cursor-pointer");
+          nextButton.disabled = true;
+        }
+      }
+
+      // Функція для скидання стилів всіх опцій
+      function resetOptions() {
+        document.querySelectorAll(".option").forEach(option => {
+          option.classList.remove("bg-[#00c891]", "text-white");
+          option.classList.add("bg-gray-100", "text-[#535c6e]"); // Скидання до дефолтного стану
+        });
+      }
+
+      // При завантаженні сторінки
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedValue = getCookie(`selectedOptions-${pageId}`);
+        let isOptionSelected = false;
+
+        // Скидаємо стилі всіх опцій
+        resetOptions();
+
+        // Оновлюємо опцію на основі значення в кукі
+        if (savedValue) {
+          const selectedOption = Array.from(
+            document.querySelectorAll(".option")
+          ).find(option => option.dataset.value === JSON.parse(savedValue));
+
+          if (selectedOption) {
+            // Активуємо опцію
+            selectedOption.classList.add("bg-[#00c891]", "text-white");
+            selectedOption.classList.remove("bg-gray-100", "text-[#535c6e]");
+            hiddenInput.value = JSON.parse(savedValue);
+            isOptionSelected = true;
+          }
+        }
+
+        // Оновлюємо стан кнопки Next
+        updateNextButton(isOptionSelected);
+      });
+
+      // Логіка для кліків по опціях
+      options.addEventListener("click", e => {
+        if (e.target.closest(".option")) {
+          const option = e.target.closest(".option");
+
+          // Скидаємо всі стилі
+          resetOptions();
+
+          // Встановлюємо активну опцію
+          option.classList.remove("bg-gray-100", "text-[#535c6e]");
+          option.classList.add("bg-[#00c891]", "text-white");
+
+          const selectedValue = option.dataset.value;
+
+          // Оновлюємо приховане поле
+          hiddenInput.value = selectedValue;
+
+          // Оновлюємо стан кнопки Next
+          updateNextButton(true);
+        }
+      });
+
+      // Логіка для кнопки Next
+      nextButton.addEventListener("click", () => {
+        const selectedValue = hiddenInput.value;
+        if (selectedValue) {
+          // Зберігаємо значення для цієї сторінки в кукі
+          setCookie(`selectedOptions-${pageId}`, selectedValue, 1);
+
+          // Переходимо на наступну сторінку
+          window.location.href = "page-8.html";
+        }
+      });
+    </script>
+  </body>
+</html>

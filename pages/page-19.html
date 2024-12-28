@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+        font-size: 22px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option" */
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      class="flex flex-col w-full max-w-[444px] mx-auto px-[20px] box-border overflow-y-scroll animate-fade-in h-[100vh] min-h-[700px]">
+      <div
+        class="mt-[48px] flex justify-start text-black text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+        <h3 class="text-[24px] font-bold leading-[34px] tracking-[0em]">
+          Did you know that...
+        </h3>
+      </div>
+      <div class="flex mt-[24px]">
+        <img
+          src="/assets/save-hundreds-of-hours.e1d0d1e98b7b121aec25.png"
+          class="w-full mx-auto"
+          alt="Take a short quiz illustration" />
+      </div>
+
+      <div class="mt-[24px]">
+        <p
+          class="text-[#465063] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em] text-left">
+          you can
+          <strong>save hundreds of hours</strong>
+          and
+          <strong>hundreds of dollars</strong>
+          using AI for content creation?
+        </p>
+      </div>
+
+      <!-- Кнопка -->
+      <div
+        class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50">
+        <p
+          class="font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em] text-center">
+          *According to our latest survey
+        </p>
+
+        <div class="relative">
+          <div
+            class="w-full relative flex justify-center items-center px-[20px] pb-[20px]">
+            <button
+              class="py-[8px] mt-[16px] relative h-[60px] box-border cursor-pointer select-none align-middle appearance-none text-white bg-gray-900 w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px]">
+              <a href="page-20.html">Continue</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    // Функція для отримання конкретного кукі
+    function getCookie(name) {
+      const cookies = document.cookie.split("; ");
+      for (let cookie of cookies) {
+        const [key, value] = cookie.split("=");
+        if (key === name) {
+          return decodeURIComponent(value);
+        }
+      }
+      return null;
+    }
+
+    // Функція для встановлення кукі
+    function setCookie(name, value, days) {
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = `${name}=${encodeURIComponent(
+        JSON.stringify(value)
+      )}; expires=${date.toUTCString()}; path=/`;
+    }
+
+    // Унікальний ідентифікатор сторінки
+    const pageId = "page-19";
+
+    // Оновлюємо опцію на основі значення в кукі
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedValue = getCookie(`selectedOptions-${pageId}`);
+      if (savedValue) {
+        console.log("Saved value from cookie:", JSON.parse(savedValue));
+      }
+    });
+
+    // Логіка для кнопок
+    document.getElementById("yesButton").addEventListener("click", () => {
+      setCookie(
+        `selectedOptions-${pageId}`,
+        "Someone help me with Content Creation",
+        1
+      );
+      window.location.href = "page-15.html";
+    });
+
+    document.getElementById("noButton").addEventListener("click", () => {
+      setCookie(
+        `selectedOptions-${pageId}`,
+        "Someone dont help me with Content Creation",
+        1
+      );
+      window.location.href = "page-20.html";
+    });
+  </script>
+</html>

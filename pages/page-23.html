@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(0px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .active-button .filter-span {
+        background: transparent !important;
+      }
+      :not(.active-button) .filter-span {
+        background: rgba(231, 227, 215, 0.5);
+      }
+
+      @keyframes ripple {
+        to {
+          opacity: 0;
+          transform: scale(2);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 flex justify-center min-h-screen font-sans">
+    <div
+      class="w-full max-w-md mx-auto rounded-[16px] overflow-hidden mt-[8px] animate-fade-in">
+      <div class="text-center">
+        <h1
+          class="text-[rgb(47,47,55)] font-montserrat text-[20px] font-semibold leading-[28px] tracking-[0.5em] text-center">
+          SMMHUB
+        </h1>
+      </div>
+
+      <div class="flex justify-center items-center gap-2 mt-[18px]">
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+        <div class="w-[28px] h-[8px] bg-[#00c891] rounded-full"></div>
+        <div
+          class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
+      </div>
+
+      <div class="text-center px-6">
+        <h1
+          class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em] text-center mt-[18px]">
+          Preferences
+        </h1>
+
+        <h2
+          class="w-full font-montserrat text-[24px] font-bold leading-[34px] tracking-[0em] text-left my-[24px] mb-[16px]">
+          Choose a Story you like
+          <br />
+          the most:
+        </h2>
+      </div>
+
+      <div id="options" class="flex items-center justify-center gap-4">
+        <button
+          data-value="data-1"
+          class="relative w-[45%] group overflow-hidden rounded-lg active-button option"
+          onclick="toggleActive(this, event)">
+          <img
+            src="/assets/preference-3.png"
+            alt="Option 1"
+            class="w-full h-auto object-cover rounded-lg" />
+
+          <span
+            class="absolute inset-0 bg-[rgba(231,227,215,0.5)] rounded-lg transition-all duration-300 filter-span pointer-events-none"></span>
+
+          <span class="ripple absolute"></span>
+        </button>
+
+        <button
+          data-value="data-2"
+          class="relative w-[45%] group overflow-hidden rounded-lg option"
+          onclick="toggleActive(this, event)">
+          <img
+            src="/assets/preference-4.png"
+            alt="Option 2"
+            class="w-full h-auto object-cover rounded-lg" />
+
+          <span
+            class="absolute inset-0 bg-[rgba(231,227,215,0.5)] rounded-lg transition-all duration-300 filter-span pointer-events-none"></span>
+
+          <span class="ripple absolute"></span>
+        </button>
+      </div>
+
+      <input type="hidden" id="hiddenInput" name="selectedOption" />
+
+      <div
+        class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50">
+        <div class="relative">
+          <div
+            class="w-full relative flex justify-center items-center px-[20px] pb-[20px]">
+            <button
+              id="nextButton"
+              class="py-[8px] relative h-[60px] box-border select-none align-middle appearance-none text-[16px] font-montserrat font-[600] leading-[20px] capitalize text-white bg-gray-900 w-full shadow-none text-base max-w-[404px] rounded-[12px]">
+              This One
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function getCookie(name) {
+        const cookies = document.cookie.split("; ");
+        for (let cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) {
+            return decodeURIComponent(value);
+          }
+        }
+        return null;
+      }
+
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${encodeURIComponent(
+          JSON.stringify(value)
+        )}; expires=${date.toUTCString()}; path=/`;
+      }
+
+      const options = document.getElementById("options");
+      const hiddenInput = document.getElementById("hiddenInput");
+      const nextButton = document.getElementById("nextButton");
+
+      const pageId = "page-23";
+
+      function updateNextButton(isOptionSelected) {
+        if (isOptionSelected) {
+          nextButton.style.backgroundColor = "rgb(2, 8, 45)";
+          nextButton.classList.remove("cursor-not-allowed");
+          nextButton.classList.add("cursor-pointer");
+          nextButton.disabled = false;
+        } else {
+          nextButton.style.backgroundColor = "#e0e0e0";
+          nextButton.classList.add("cursor-not-allowed");
+          nextButton.classList.remove("cursor-pointer");
+          nextButton.disabled = true;
+        }
+      }
+
+      function resetOptions() {
+        document.querySelectorAll(".option").forEach(option => {
+          option.classList.remove("bg-[#00c891]", "text-white");
+          option.classList.add("bg-gray-100", "text-[#535c6e]");
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedValue = getCookie(`selectedOptions-${pageId}`);
+        let isOptionSelected = false;
+
+        resetOptions();
+
+        if (savedValue) {
+          const selectedOption = Array.from(
+            document.querySelectorAll(".option")
+          ).find(option => option.dataset.value === JSON.parse(savedValue));
+
+          if (selectedOption) {
+            selectedOption.classList.add("bg-[#00c891]", "text-white");
+            selectedOption.classList.remove("bg-gray-100", "text-[#535c6e]");
+            hiddenInput.value = JSON.parse(savedValue);
+            isOptionSelected = true;
+          }
+        } else {
+          const firstOption = document.querySelector(".option");
+          if (firstOption) {
+            firstOption.classList.add("bg-[#00c891]", "text-white");
+            firstOption.classList.remove("bg-gray-100", "text-[#535c6e]");
+            hiddenInput.value = firstOption.dataset.value;
+            isOptionSelected = true;
+          }
+        }
+
+        updateNextButton(isOptionSelected);
+      });
+
+      options.addEventListener("click", e => {
+        if (e.target.closest(".option")) {
+          const option = e.target.closest(".option");
+
+          resetOptions();
+
+          option.classList.remove("bg-gray-100", "text-[#535c6e]");
+          option.classList.add("bg-[#00c891]", "text-white");
+
+          const selectedValue = option.dataset.value;
+
+          hiddenInput.value = selectedValue;
+
+          updateNextButton(true);
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        const selectedValue = hiddenInput.value;
+        if (selectedValue) {
+          setCookie(`selectedOptions-${pageId}`, selectedValue, 1);
+
+          window.location.href = "page-24.html";
+        }
+      });
+
+      function toggleActive(button, event) {
+        const buttons = document.querySelectorAll("#options button");
+        buttons.forEach(btn => {
+          btn.classList.remove("active-button");
+          const filterSpan = btn.querySelector(".filter-span");
+          if (filterSpan) {
+            filterSpan.style.background = "rgba(231, 227, 215, 0.5)";
+          }
+        });
+
+        button.classList.add("active-button");
+        const activeFilterSpan = button.querySelector(".filter-span");
+        if (activeFilterSpan) {
+          activeFilterSpan.style.background = "transparent";
+        }
+
+        const rect = button.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const ripple = document.createElement("span");
+
+        ripple.style.position = "absolute";
+        ripple.style.borderRadius = "50%";
+        ripple.style.width = ripple.style.height = `${
+          Math.max(rect.width, rect.height) * 2
+        }px`;
+        ripple.style.left = `${x - Math.max(rect.width, rect.height)}px`;
+        ripple.style.top = `${y - Math.max(rect.width, rect.height)}px`;
+        ripple.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+        ripple.style.transform = "scale(0)";
+        ripple.style.opacity = "0.75";
+        ripple.style.animation = "ripple 1s ease-out";
+
+        button.appendChild(ripple);
+
+        ripple.addEventListener("animationend", () => {
+          ripple.remove();
+        });
+      }
+    </script>
+  </body>
+</html>
