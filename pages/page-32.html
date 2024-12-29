@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+        font-size: 22px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      class="flex flex-col w-full max-w-[444px] mx-auto min-h-screen px-[20px] box-border overflow-y-scroll animate-fade-in">
+      <div
+        class="mt-[32px] flex text-black text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+        <h3 class="text-[24px] font-bold leading-[34px] tracking-[0em]">
+          Analyzing your answers...
+        </h3>
+      </div>
+
+      <!-- Progress Bars -->
+
+      <div>
+        <div
+          class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
+          id="progress-container-1">
+          <p class="flex items-center">
+            <svg
+              id="check-icon-1"
+              class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
+              <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+
+            Analyzing your posting habits
+          </p>
+          <span id="percentage-1">0%</span>
+        </div>
+        <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
+          <div
+            id="progress-bar-1"
+            class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
+            style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div
+          class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
+          id="progress-container-2">
+          <p class="flex items-center">
+            <svg
+              id="check-icon-2"
+              class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
+              <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+
+            Estimating time you can save
+          </p>
+          <span id="percentage-2">0%</span>
+        </div>
+        <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
+          <div
+            id="progress-bar-2"
+            class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
+            style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div>
+        <div
+          class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
+          id="progress-container-3">
+          <p class="flex items-center">
+            <svg
+              id="check-icon-3"
+              class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24">
+              <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+
+            Reviewing your preferences
+          </p>
+          <span id="percentage-3">0%</span>
+        </div>
+        <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
+          <div
+            id="progress-bar-3"
+            class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
+            style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div
+        id="modal"
+        class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50 hidden">
+        <div
+          class="bg-white text-[#02082d] shadow-md pt-[24px] rounded-[24px] w-[270px] text-center">
+          <p
+            id="modal-text"
+            class="text-[16px] mb-4 px-[24px] font-semibold"></p>
+          <div class="flex flex-row border-t border-gray-300/20 p-0">
+            <!-- "No" Button -->
+            <button
+              id="modal-no"
+              class="inline-flex items-center justify-center relative box-border bg-transparent cursor-pointer select-none align-middle appearance-none min-w-[64px] w-full shadow-none font-montserrat text-[16px] font-normal leading-[20px] text-gray-800 capitalize outline-none border-0 p-4">
+              No
+            </button>
+            <!-- "Yes" Button -->
+            <button
+              id="modal-yes"
+              class="inline-flex items-center justify-center relative box-border bg-transparent cursor-pointer select-none align-middle appearance-none min-w-[64px] w-full shadow-none font-montserrat text-[16px] font-bold leading-[20px] text-green-500 capitalize outline-none border-l border-gray-300/20 p-4 transition-colors duration-250 ease-in-out">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="relative mx-auto mt-[84px] w-[298px] h-[70px] bg-[url('https://web.smmhub.app/static/media/diadem-2.c09cae9d56dad5f794741a7e787002bb.svg')] bg-no-repeat bg-center flex flex-col justify-center">
+        <!-- Верхня частина: trusted by -->
+        <div class="flex flex-col items-center">
+          <div class="text-black flex flex-col items-center">
+            <span
+              class="text-black text-[14px] font-bold leading-[17px] tracking-[-0.02em]">
+              trusted by
+            </span>
+            <div class="flex justify-center">
+              <span
+                class="font-montserrat text-[28px] font-bold leading-[34px] tracking-[-0.02em] text-center capitalize">
+                800.000 Users
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer fixed bottom-[20px] left-0 right-0">
+        <div class="w-full flex justify-center items-center px-[20px]">
+          <a
+            id="continue-button"
+            href="page-30.html"
+            class="py-[8px] h-[60px] box-border cursor-not-allowed select-none align-middle appearance-none text-white bg-gray-200 w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px] flex justify-center items-center pointer-events-none">
+            Continue
+          </a>
+        </div>
+      </div>
+    </section>
+    <script>
+      const progressBars = [
+        {
+          id: "progress-bar-1",
+          target: 71,
+          message: "Are you ready to post content daily?",
+          containerId: "progress-container-1",
+          iconId: "check-icon-1",
+        },
+        {
+          id: "progress-bar-2",
+          target: 32,
+          message: "Do you need help estimating time savings?",
+          containerId: "progress-container-2",
+          iconId: "check-icon-2",
+        },
+        {
+          id: "progress-bar-3",
+          target: 49,
+          message: "Would you like to review your preferences?",
+          containerId: "progress-container-3",
+          iconId: "check-icon-3",
+        },
+      ];
+
+      let currentBar = 0;
+
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = `${name}=${value}; ${expires}; path=/`;
+      }
+
+      function startProgress() {
+        if (currentBar >= progressBars.length) {
+          enableContinueButton();
+          return;
+        }
+
+        const bar = progressBars[currentBar];
+        const element = document.getElementById(bar.id);
+        const percentageText = document.getElementById(
+          `percentage-${currentBar + 1}`
+        );
+        const container = document.getElementById(bar.containerId);
+        const icon = document.getElementById(bar.iconId);
+        const progressText = container.querySelector("p"); // Текст у progress bar
+        let progress = 0;
+
+        container.classList.add("text-black", "font-semibold");
+
+        const interval = setInterval(() => {
+          progress += 1;
+          element.style.width = `${progress}%`;
+          percentageText.textContent = `${progress}%`;
+
+          if (progress === bar.target) {
+            clearInterval(interval);
+            showModal(bar.message);
+
+            document.getElementById("modal-yes").onclick = () => {
+              closeModal(true);
+              continueProgress();
+            };
+            document.getElementById("modal-no").onclick = () => {
+              closeModal(false);
+              continueProgress();
+            };
+          }
+        }, 50);
+      }
+
+      function continueProgress() {
+        const bar = progressBars[currentBar];
+        const element = document.getElementById(bar.id);
+        const percentageText = document.getElementById(
+          `percentage-${currentBar + 1}`
+        );
+        const container = document.getElementById(bar.containerId);
+        const icon = document.getElementById(bar.iconId);
+        const progressText = container.querySelector("p"); // Текст у progress bar
+        let progress = parseInt(element.style.width);
+
+        const interval = setInterval(() => {
+          progress += 1;
+          element.style.width = `${progress}%`;
+          percentageText.textContent = `${progress}%`;
+
+          if (progress === 100) {
+            clearInterval(interval);
+            // Робимо іконку видимою та зеленою
+            icon.classList.remove("hidden");
+            icon.classList.add("text-green-500");
+
+            // Змінюємо текст на чорний
+            progressText.classList.remove("text-[#8293AC]"); // Видаляємо сірий текст
+            progressText.classList.add("text-black");
+
+            currentBar++;
+            startProgress();
+          }
+        }, 30);
+      }
+
+      function showModal(message) {
+        const modal = document.getElementById("modal");
+        const modalText = document.getElementById("modal-text");
+        modalText.textContent = message;
+        modal.classList.remove("hidden");
+      }
+
+      function closeModal(answer) {
+        const modal = document.getElementById("modal");
+        modal.classList.add("hidden");
+
+        setCookie(`response-${currentBar + 1}`, answer ? "yes" : "no", 7);
+      }
+
+      function enableContinueButton() {
+        const button = document.getElementById("continue-button");
+        button.classList.remove(
+          "bg-gray-400",
+          "cursor-not-allowed",
+          "pointer-events-none"
+        );
+        button.classList.add("bg-gray-900", "cursor-pointer");
+      }
+
+      startProgress();
+    </script>
+  </body>
+</html>

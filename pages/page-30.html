@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="flex justify-center min-h-screen font-sans">
+    <div
+      class="w-full max-w-md mx-auto rounded-[16px] overflow-hidden mt-[8px] animate-fade-in">
+      <div class="text-center px-6">
+        <h2
+          class="w-full font-montserrat text-[24px] font-bold leading-[34px] tracking-[0em] text-left my-[24px] mb-[16px]">
+          Just one step left
+        </h2>
+
+        <p
+          class="mt-[12px] text-black font-montserrat text-[16px] font-normal leading-[25px] tracking-[-0.02em] text-left">
+          Please enter your email
+        </p>
+
+        <div class="mt-[24px]">
+          <input
+            id="inputValue"
+            type="e-mail"
+            placeholder="e-mail"
+            class="w-full px-4 py-3 border border-gray-300 text-base font-montserrat font-normal rounded-[12px] bg-gray-100 focus:outline-black" />
+        </div>
+
+        <div class="flex mt-[40px]">
+          <p
+            class="mt-[12px] text-black font-montserrat text-[16px] font-normal leading-[25px] tracking-[-0.02em] text-left">
+            You will get
+            <span
+              class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 box-decoration-clone">
+              Premium Access
+            </span>
+            to the
+            <strong>SMMHUB</strong>
+            app immediately to your inbox after completion of all steps on the
+            next screens.
+          </p>
+        </div>
+        <div class="flex-col mt-[24px] text-left">
+          <p><strong>+ Bonus</strong></p>
+          <div class="flex gap-2 mt-[21px]">
+            <svg
+              width="24px"
+              height="24px"
+              viewBox="0 0 30 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
+              focusable="false"
+              color="transparent"
+              aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M27.1429 3C27.1429 1.34314 25.7997 0 24.1429 0H14.4873C13.935 0 13.4873 0.447715 13.4873 1V10.2912C13.4873 10.3942 13.4468 10.493 13.3746 10.5658C13.3025 10.6387 13.2047 10.6796 13.1027 10.6796H3.91211C3.35982 10.6796 2.91211 11.1273 2.91211 11.6796V14.6439H27.1429V3ZM27.1429 28.0985H2.91211V33C2.91211 34.6568 4.25526 36 5.91211 36H24.1429C25.7997 36 27.1429 34.6569 27.1429 33V28.0985ZM11.1092 0.615498C11.6741 0.0417247 12.6506 0.441727 12.6506 1.24692V9.90277H4.1145C3.31606 9.90277 2.913 8.94031 3.47318 8.37135L11.1092 0.615498Z"
+                fill="#8293AC"
+                fill-opacity="0.56"></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M28.6808 15.4207H1.31923C0.969661 15.4217 0.634699 15.5624 0.387515 15.812C0.14033 16.0617 0.00101472 16.3999 0 16.7529V25.9894C0.00101472 26.3425 0.14033 26.6807 0.387515 26.9304C0.634699 27.18 0.969661 27.3207 1.31923 27.3217H28.6808C29.0303 27.3207 29.3653 27.18 29.6125 26.9304C29.8597 26.6807 29.999 26.3425 30 25.9894V16.7529C29.999 16.3999 29.8597 16.0617 29.6125 15.812C29.3653 15.5624 29.0303 15.4217 28.6808 15.4207ZM9.40769 22.4121H8.31154V24.7426C8.31154 24.8456 8.27102 24.9444 8.19889 25.0173C8.12676 25.0901 8.02893 25.131 7.92692 25.131H7.06923C6.96722 25.131 6.8694 25.0901 6.79727 25.0173C6.72514 24.9444 6.68462 24.8456 6.68462 24.7426V17.992C6.68462 17.889 6.72514 17.7902 6.79727 17.7173C6.8694 17.6445 6.96722 17.6036 7.06923 17.6036H9.40769C11.0654 17.6036 11.9808 18.4542 11.9808 20.004C11.9808 21.5537 11.0654 22.4121 9.40769 22.4121ZM15.1154 25.131H12.8923C12.7903 25.131 12.6925 25.0901 12.6203 25.0173C12.5482 24.9444 12.5077 24.8456 12.5077 24.7426V17.992C12.5077 17.889 12.5482 17.7902 12.6203 17.7173C12.6925 17.6445 12.7903 17.6036 12.8923 17.6036H15.1154C17.5154 17.6036 18.8346 18.9436 18.8346 21.3751C18.8346 23.8065 17.55 25.131 15.1154 25.131ZM24.3462 18.7649C24.3462 18.8679 24.3056 18.9667 24.2335 19.0396C24.1614 19.1124 24.0635 19.1533 23.9615 19.1533H21.1538V20.707H23.5192C23.6212 20.707 23.7191 20.7479 23.7912 20.8208C23.8633 20.8936 23.9038 20.9924 23.9038 21.0954V21.8722C23.9038 21.9753 23.8633 22.0741 23.7912 22.1469C23.7191 22.2197 23.6212 22.2607 23.5192 22.2607H21.1538V24.7426C21.1538 24.8456 21.1133 24.9444 21.0412 25.0173C20.9691 25.0901 20.8712 25.131 20.7692 25.131H19.9154C19.8134 25.131 19.7156 25.0901 19.6434 25.0173C19.5713 24.9444 19.5308 24.8456 19.5308 24.7426V17.992C19.5308 17.889 19.5713 17.7902 19.6434 17.7173C19.7156 17.6445 19.8134 17.6036 19.9154 17.6036H23.9654C24.0674 17.6036 24.1652 17.6445 24.2373 17.7173C24.3095 17.7902 24.35 17.889 24.35 17.992L24.3462 18.7649ZM17.1848 21.3751C17.1848 20.575 17.0117 19.9923 16.6617 19.6389C16.4514 19.4559 16.2069 19.3174 15.9426 19.2313C15.6784 19.1453 15.3998 19.1135 15.1233 19.1378H14.1348V23.5968H15.1156C16.5579 23.5968 17.1771 22.9326 17.1848 21.3751ZM9.40762 19.1378C10.0922 19.1378 10.3384 19.3631 10.3384 20.0001C10.3307 20.5128 10.173 20.8585 9.40762 20.8585H8.31146V19.1378H9.40762Z"
+                fill="#02082D"></path>
+            </svg>
+            <span
+              class="bg-clip-text text-transparent font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 box-decoration-clone">
+              Ultimate Instagram Guide
+            </span>
+          </div>
+          <label
+            class="option w-full mt-[21px] flex items-center gap-[9px] cursor-pointer relative"
+            data-value="Video Scripts">
+            <input
+              id="videoscripts-checkbox"
+              type="checkbox"
+              class="peer opacity-0 absolute"
+              value="Video Scripts" />
+            <div
+              class="w-[26px] h-[26px] rounded-md border border-gray-300 flex items-center justify-center bg-white peer-checked:bg-[#000000] peer-checked:border-[#000000]">
+              <svg
+                class="w-[26px] h-[26px] peer-checked:visible transition-opacity"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span
+              class="text-black font-[Montserrat] text-[16px] font-normal leading-[23px] tracking-[-0.02em]">
+              I agree to receive your marketing or promotional emails
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div
+        class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50">
+        <div class="relative">
+          <div
+            class="w-full relative flex justify-center items-center px-[20px] pb-[20px]">
+            <button
+              id="nextButton"
+              class="py-[8px] relative h-[60px] box-border cursor-not-allowed select-none align-middle appearance-none text-white bg-gray-200 w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px]"
+              disabled>
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function getCookie(name) {
+        const cookies = document.cookie.split("; ");
+        for (let cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) {
+            return decodeURIComponent(value);
+          }
+        }
+        return null;
+      }
+
+      function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = `${name}=${encodeURIComponent(
+          JSON.stringify(value)
+        )}; expires=${date.toUTCString()}; path=/`;
+      }
+
+      const inputValue = document.getElementById("inputValue");
+      const nextButton = document.getElementById("nextButton");
+
+      const pageId = "page-30";
+
+      function updateNextButton(isInputValid) {
+        if (isInputValid) {
+          nextButton.style.backgroundColor = "rgb(2, 8, 45)";
+          nextButton.classList.remove("cursor-not-allowed");
+          nextButton.classList.add("cursor-pointer");
+          nextButton.disabled = false;
+        } else {
+          nextButton.style.backgroundColor = "#e0e0e0";
+          nextButton.classList.add("cursor-not-allowed");
+          nextButton.classList.remove("cursor-pointer");
+          nextButton.disabled = true;
+        }
+      }
+
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Регулярний вираз для перевірки email
+        return emailRegex.test(email);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedValue = getCookie(`inputValue-${pageId}`);
+
+        if (savedValue) {
+          inputValue.value = JSON.parse(savedValue);
+          if (validateEmail(inputValue.value)) {
+            updateNextButton(true);
+          } else {
+            updateNextButton(false);
+          }
+        } else {
+          updateNextButton(false);
+        }
+      });
+
+      inputValue.addEventListener("input", () => {
+        const value = inputValue.value.trim();
+
+        // Перевірка валідності email при кожній зміні
+        if (validateEmail(value)) {
+          updateNextButton(true);
+        } else {
+          updateNextButton(false);
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        const value = inputValue.value.trim();
+        if (validateEmail(value)) {
+          setCookie(`inputValue-${pageId}`, value, 1);
+
+          window.location.href = "page-31.html";
+        }
+      });
+    </script>
+  </body>
+</html>
