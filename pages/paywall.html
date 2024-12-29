@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <title>SMMHUB</title>
+    <style>
+      body {
+        font-family: "Montserrat";
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .swiper {
+        width: 100%;
+        height: auto;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        overflow-x: scroll;
+      }
+
+      .swiper-slide {
+        flex-shrink: 0;
+        width: auto;
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="fixed-banner"
+      class="hidden fixed top-0 left-0 w-full bg-gradient-to-r from-[#00c48c] to-[#00c4c8] text-white text-[12px] font-normal leading-[22px] flex items-center justify-between pt-[14px] pb-[21px] px-[20px] z-50">
+      <p class="text-[13px] font-normal">Your special offer expires soon 👉</p>
+      <div id="banner-timer" class="font-bold flex items-center">
+        <p class="text-[20px] font-semibold m-0">15m</p>
+        <p class="text-[14px] font-semibold m-0">m</p>
+        <p class="text-[14px] font-semibold m-0">:</p>
+        <p class="text-[20px] font-semibold m-0">00s</p>
+        <p class="text-[14px] font-semibold m-0">s</p>
+      </div>
+    </div>
+    <section
+      id="section2"
+      class="flex px-[20px] pt-[32px] pb-[16px] flex-col w-full max-w-[444px] mx-auto min-h-screen box-border overflow-y-scroll animate-fade-in">
+      <div class="">
+        <h2
+          class="m-0 font-bold text-[28px] leading-[33px] text-center tracking-[-0.03em]"
+          style="
+            background-image: linear-gradient(
+              95.49deg,
+              rgb(255, 0, 107) 10.61%,
+              rgb(143, 0, 255) 60.31%,
+              rgb(1, 164, 255) 95.66%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          ">
+          Unleash your creativity
+          <br />
+          & Grow Followers!
+        </h2>
+      </div>
+
+      <div
+        class="mt-[28px] flex-col text-[#02082d] shadow-none pt-5 pb-6 transition-shadow duration-300 ease-in-out overflow-hidden bg-[#fdf7e9] border border-[#fc4848] rounded-[12px]">
+        <p class="font-bold text-[12px] leading-[24px] text-center">
+          Your personalized plan is ready! It will
+          <br />
+          expire in 15 minutes!
+        </p>
+
+        <div
+          class="flex items-center justify-center mt-[8px] tracking-[-0.02em] text-center">
+          <p class="text-[#fc4848] font-bold text-[20px] leading-[32px]">
+            Time Remaining
+          </p>
+          <!-- Контейнер для таймера -->
+          <p
+            id="countdown"
+            class="text-[#fc4848] ml-[3px] font-bold text-[20px] leading-[32px]">
+            15:00
+          </p>
+        </div>
+
+        <div
+          id="scroll-banner-start"
+          class="mt-[8px] text-[14px] font-normal text-[#02082D] leading-[22px] text-center">
+          Scroll down to get started!
+        </div>
+      </div>
+
+      <div
+        class="flex-col mt-[24px] text-center text-black text-[21px] font-bold leading-[34px]">
+        <p class="">Start growing today!</p>
+        <p class="mt-[8px] text-[14px] font-semibold leading-[24px]">
+          Based on your answers you can see your
+          <br />
+          First results by
+          <span
+            class="bg-gradient-to-r from-[#ff006b] via-[#8f00ff] to-[#01a4ff] bg-clip-text text-transparent box-decoration-clone">
+            January 19
+          </span>
+        </p>
+        <div class="mt-[20px]">
+          <img
+            src="https://web.smmhub.app/static/media/start-growing-today.185567dca50db81a9c451841f421ca20.svg"
+            alt="" />
+        </div>
+        <div
+          class="text-[#465063] text-[12px] font-normal leading-[22px] tracking-[-0.02em]">
+          <p class="mt-[12px]">personalized plan*</p>
+          <div class="w-full flex justify-center items-center mt-[12px]">
+            <a
+              href="#plan-section"
+              class="py-[8px] h-[60px] box-border cursor-pointer select-none align-middle appearance-none text-white bg-[#02082D] w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px] flex justify-center items-center">
+              See My Plan
+            </a>
+          </div>
+          <p class="mt-[12px]">Available only for iPhone users</p>
+        </div>
+      </div>
+      <div class="mt-[32px]">
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[#ff006b] via-[#8f00ff] to-[#01a4ff] box-decoration-clone mx-auto max-w-full w-max block font-gilroy text-[21px] font-extrabold leading-[28px] text-center">
+          Start Growing with SMMHUB
+        </span>
+        <div class="flex-col mt-[24px]">
+          <div class="flex items-center">
+            <svg
+              class="w-[9px] h-[9px] text-[#00c891]"
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              data-testid="CircleIcon">
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              class="ml-[16px] text-[14px] font-normal leading-[22px] tracking-[-0.02em]">
+              All-in-One App for Content Creators
+            </p>
+          </div>
+          <div class="flex items-center mt-[10px]">
+            <svg
+              class="w-[9px] h-[9px] text-[#00c891]"
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              data-testid="CircleIcon">
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              class="ml-[16px] text-[14px] font-normal leading-[22px] tracking-[-0.02em]">
+              Powered by AI ChatGPT (AI Features) 🔥
+            </p>
+          </div>
+          <div class="flex items-center mt-[10px]">
+            <svg
+              class="w-[9px] h-[9px] text-[#00c891]"
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              data-testid="CircleIcon">
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              class="ml-[16px] text-[14px] font-normal leading-[22px] tracking-[-0.02em]">
+              More than 500 Templates for Stories & Posts
+            </p>
+          </div>
+          <div class="flex items-center mt-[10px]">
+            <svg
+              class="w-[9px] h-[9px] text-[#00c891]"
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              data-testid="CircleIcon">
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              class="ml-[16px] text-[14px] font-normal leading-[22px] tracking-[-0.02em]">
+              Advanced & Powerful editor
+            </p>
+          </div>
+          <div class="flex items-center mt-[10px]">
+            <svg
+              class="w-[9px] h-[9px] text-[#00c891]"
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              data-testid="CircleIcon">
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              class="ml-[16px] text-[14px] font-normal leading-[22px] tracking-[-0.02em]">
+              Unique Fonts, Stickers & Animations
+            </p>
+          </div>
+          <div class="flex items-center mt-[10px]">
+            <svg
+              class="w-[9px] h-[9px] text-[#00c891]"
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              data-testid="CircleIcon">
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              class="ml-[16px] text-[14px] font-normal leading-[22px] tracking-[-0.02em]">
+              Remove Backgrounds (Outlines & Shadows are included)
+            </p>
+          </div>
+          <div class="flex items-center mt-[10px]">
+            <svg
+              class="w-[9px] h-[9px] text-[#00c891]"
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              data-testid="CircleIcon">
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              class="ml-[16px] text-[14px] font-normal leading-[22px] tracking-[-0.02em]">
+              Boost Followers Challenge 🔥
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--  -->
+
+    <section
+      id="plan-section"
+      class="flex px-[20px] pt-[32px] bg-[#8293AC29] pb-[36px] flex-col w-full max-w-[444px] mx-auto min-h-screen box-border animate-fade-in">
+      <div class="">
+        <p class="text-[15px] font-normal leading-[24px] text-center">
+          Achieve massive results by growing
+          <br />
+          just
+          <span
+            class="bg-gradient-to-r from-[#ff006b] via-[#8f00ff] to-[#01a4ff] bg-clip-text text-transparent box-decoration-clone">
+            1%
+          </span>
+          every day!
+        </p>
+      </div>
+      <div
+        class="text-[#02082D] shadow-none mt-[16px] h-[215px] flex flex-col justify-between transition-shadow duration-300 ease-in-out overflow-hidden bg-gradient-to-r from-[#020F2D] to-[#15939A] rounded-[12px]">
+        <!-- Зображення -->
+        <div class="flex flex-row my-[13px] mx-auto justify-center">
+          <img
+            src="https://web.smmhub.app/static/media/melanie-1.d4a873260091421accda.jpg"
+            alt=""
+            class="block bg-cover bg-no-repeat object-cover h-[109px] w-[131px] bg-center rounded-[8px]" />
+          <img
+            src="https://web.smmhub.app/static/media/melanie-1.d4a873260091421accda.jpg"
+            alt=""
+            class="block ml-[13px] bg-cover bg-no-repeat object-cover h-[109px] w-[131px] bg-center rounded-[8px]" />
+        </div>
+
+        <!-- Футер -->
+        <div
+          class="flex flex-row px-[16px] py-[20px] items-center text-white rounded-[12px] bg-gradient-to-r from-[#00c891] to-[#00b0c8]">
+          <!-- Content goes here -->
+          <svg
+            class="w-[21px] h-[21px] mr-[10px] text-white"
+            focusable="false"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            data-testid="RadioButtonCheckedIcon"
+            fill="currentColor">
+            <path
+              d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5m0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8"></path>
+          </svg>
+
+          <div class="flex-col">
+            <p class="text-[12px] font-medium">7-day trial for</p>
+            <p class="text-[12px]">
+              Then
+              <span class="line-through">$49.99</span>
+              <strong>$39.99</strong>
+              / month
+            </p>
+          </div>
+
+          <span class="ml-auto text-[20px] font-bold">$0.99</span>
+        </div>
+      </div>
+      <div class="mt-[24px]">
+        <div class="flex-col">
+          <div
+            class="text-[#465063] text-[12px] font-normal leading-[22px] tracking-[-0.02em]">
+            <div class="w-full flex justify-center items-center mt-[12px]">
+              <a
+                href="#plan-section"
+                class="py-[8px] h-[60px] box-border cursor-pointer select-none align-middle appearance-none text-white bg-[#02082D] w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[12px] flex justify-center items-center">
+                See My Plan
+              </a>
+            </div>
+            <p class="mt-[12px] text-[12px] text-center">
+              Available only for iPhone users
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-[42px]">
+        <div class="relative">
+          <div
+            class="bg-white text-[#02082D] shadow-[0_20px_40px_-20px_rgba(130,147,172,1)] transition-shadow duration-300 ease-in-out overflow-hidden p-[10px] rounded-[12px]">
+            <div
+              class="p-[10px] rounded-[4px] border border-[rgba(130,147,172,0.2)]">
+              <p
+                class="m-0 font-monts text-[20px] font-extrabold leading-[28px] text-center tracking-[-0.03em]">
+                <span
+                  class="bg-gradient-to-r from-[#ff006b] via-[#8f00ff] to-[#01a4ff] bg-clip-text text-transparent box-decoration-clone">
+                  100% Money-Back
+                  <br />
+                  Guarantee
+                </span>
+              </p>
+              <p
+                class="mt-[16px] mb-[24px] font-montserrat text-[#465063] text-[12px] font-normal leading-[22px] tracking-[-0.02em] text-center">
+                Supported by the positive experiences of tens of thousands of
+                clients globally, our program has proven its effectiveness in
+                delivering real, measurable improvements. Consistent daily
+                engagement with your plan is key to these visible results. If
+                you diligently follow your plan but still don't see the results
+                you expect, we promise a full refund. We encourage you to read
+                our
+                <a
+                  class="text-[#00c891] font-bold underline decoration-[#00c891]/40"
+                  href="https://smmhub.app/terms">
+                  Terms of Use
+                </a>
+                for a detailed understanding of how subscription works, our
+                commitment and your role in this journey.
+              </p>
+            </div>
+          </div>
+          <div class="absolute right-0 translate-x-[-15px] translate-y-[-7px]">
+            <svg
+              width="55"
+              height="43"
+              viewBox="0 0 55 43"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="
+                filter: drop-shadow(rgba(130, 147, 172, 0.39) 0px 5px 20px);
+              ">
+              <g filter="url(#filter0_d_242_918)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M15.0996 0.606947L0.497831 22.7591C0.113689 23.3419 0.429658 24.129 1.11014 24.2844L12.6576 26.9214C12.8796 26.9721 13.0777 27.0971 13.219 27.2756L21.1825 37.336C21.7073 37.9991 22.7671 37.7518 22.9444 36.9249L27.0347 17.8392L30.7765 36.0146C30.9449 36.8323 31.982 37.0959 32.5203 36.4578L40.2445 27.3019C40.4084 27.1076 40.6401 26.9831 40.8925 26.9535L53.2104 25.5107C53.962 25.4226 54.3473 24.5639 53.9132 23.9439L37.9003 1.07176C37.6596 0.728044 37.23 0.5711 36.8245 0.678765L27.2124 3.23066L16.2004 0.193296C15.7826 0.0780538 15.3381 0.245076 15.0996 0.606947Z"
+                  fill="white"></path>
+              </g>
+              <defs>
+                <filter
+                  id="filter0_d_242_918"
+                  x="0.332031"
+                  y="0.157227"
+                  width="53.7637"
+                  height="42.5588"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+                  <feFlood
+                    flood-opacity="0"
+                    result="BackgroundImageFix"></feFlood>
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"></feColorMatrix>
+                  <feMorphology
+                    radius="20"
+                    operator="erode"
+                    in="SourceAlpha"
+                    result="effect1_dropShadow_242_918"></feMorphology>
+                  <feOffset dy="5"></feOffset>
+                  <feGaussianBlur stdDeviation="10"></feGaussianBlur>
+                  <feComposite in2="hardAlpha" operator="out"></feComposite>
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0.509804 0 0 0 0 0.576471 0 0 0 0 0.67451 0 0 0 0.39 0"></feColorMatrix>
+                  <feBlend
+                    mode="normal"
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow_242_918"></feBlend>
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect1_dropShadow_242_918"
+                    result="shape"></feBlend>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+          <div class="absolute right-0 translate-x-[-15px] translate-y-[-43px]">
+            <svg
+              width="56"
+              height="61"
+              viewBox="0 0 56 61"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="
+                filter: drop-shadow(rgba(130, 147, 172, 0.39) 0px 5px 20px);
+                backdrop-filter: blur(0px);
+              ">
+              <g filter="url(#filter0_d_25_25315)">
+                <path
+                  d="M28 0L31.8545 3.66336L36.6525 1.37042L39.1863 6.0456L44.458 5.34752L45.4231 10.5769L50.6525 11.542L49.9544 16.8137L54.6296 19.3475L52.3366 24.1455L56 28L52.3366 31.8545L54.6296 36.6525L49.9544 39.1863L50.6525 44.458L45.4231 45.4231L44.458 50.6525L39.1863 49.9544L36.6525 54.6296L31.8545 52.3366L28 56L24.1455 52.3366L19.3475 54.6296L16.8137 49.9544L11.542 50.6525L10.5769 45.4231L5.34752 44.458L6.0456 39.1863L1.37042 36.6525L3.66336 31.8545L0 28L3.66336 24.1455L1.37042 19.3475L6.0456 16.8137L5.34752 11.542L10.5769 10.5769L11.542 5.34752L16.8137 6.0456L19.3475 1.37042L24.1455 3.66336L28 0Z"
+                  fill="white"></path>
+              </g>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M28 48C39.0457 48 48 39.0457 48 28C48 16.9543 39.0457 8 28 8C16.9543 8 8 16.9543 8 28C8 39.0457 16.9543 48 28 48ZM28 44.9974C18.6126 44.9974 11.0026 37.3874 11.0026 28C11.0026 18.6126 18.6126 11.0026 28 11.0026C37.3874 11.0026 44.9974 18.6126 44.9974 28C44.9974 37.3874 37.3874 44.9974 28 44.9974ZM38.1629 21.9475C38.6861 21.3053 38.5897 20.3604 37.9475 19.8371C37.3053 19.3139 36.3604 19.4103 35.8371 20.0525L25.8863 32.2649L20.0607 26.4393C19.4749 25.8536 18.5251 25.8536 17.9393 26.4393C17.3536 27.0251 17.3536 27.9749 17.9393 28.5607L24.1564 34.7777C25.2037 35.825 26.9267 35.7373 27.8623 34.5891L38.1629 21.9475Z"
+                fill="url(#paint0_linear_25_25315)"></path>
+              <defs>
+                <filter
+                  id="filter0_d_25_25315"
+                  x="0"
+                  y="0"
+                  width="56"
+                  height="61"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+                  <feFlood
+                    flood-opacity="0"
+                    result="BackgroundImageFix"></feFlood>
+                  <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"></feColorMatrix>
+                  <feMorphology
+                    radius="20"
+                    operator="erode"
+                    in="SourceAlpha"
+                    result="effect1_dropShadow_25_25315"></feMorphology>
+                  <feOffset dy="5"></feOffset>
+                  <feGaussianBlur stdDeviation="10"></feGaussianBlur>
+                  <feComposite in2="hardAlpha" operator="out"></feComposite>
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0.509804 0 0 0 0 0.576471 0 0 0 0 0.67451 0 0 0 0.39 0"></feColorMatrix>
+                  <feBlend
+                    mode="normal"
+                    in2="BackgroundImageFix"
+                    result="effect1_dropShadow_25_25315"></feBlend>
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect1_dropShadow_25_25315"
+                    result="shape"></feBlend>
+                </filter>
+                <linearGradient
+                  id="paint0_linear_25_25315"
+                  x1="16.5"
+                  y1="10.5"
+                  x2="43"
+                  y2="41"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#E9C687"></stop>
+                  <stop offset="1" stop-color="#EE8A7C"></stop>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--  -->
+
+    <section class="flex flex-col pt-[32px] pb-[32px] items-center">
+      <span
+        class="bg-clip-text text-transparent box-decoration-clone text-center mb-[32px] font-gilroy text-[21px] font-extrabold leading-[29px] tracking-[-0.03em] bg-gradient-to-r from-[#ff006b] via-[#8f00ff] to-[#01a4ff]">
+        See success stories
+        <br />
+        from our clients
+      </span>
+      <div class="w-full max-w-[444px]">
+        <!-- Слайдер -->
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper flex">
+            <div
+              class="swiper-slide bg-white w-[315px] m-0 rounded-[16px] shadow-[0_20px_60px_-10px_rgba(130,147,172,1)] pb-[16px] mx-auto">
+              <div class="rounded-[16px]">
+                <img
+                  src="https://web.smmhub.app/static/media/success-story-1.cd9b374eedfcf38ad7e8.jpg"
+                  alt="Profile"
+                  class="rounded-[12px] w-full h-auto" />
+              </div>
+              <div class="p-[16px]">
+                <p class="text-[#02082D] text-[18px] font-bold leading-[24px]">
+                  Kate Smith
+                </p>
+                <div class="flex items-center mt-[8px] gap-[8px]">
+                  <svg
+                    class="w-[16px] h-[16px] text-[#00c891]"
+                    focusable="false"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69zM9.38 16.01 7 13.61a.9959.9959 0 0 1 0-1.41l.07-.07c.39-.39 1.03-.39 1.42 0l1.61 1.62 5.15-5.16c.39-.39 1.03-.39 1.42 0l.07.07c.39.39.39 1.02 0 1.41l-5.92 5.94c-.41.39-1.04.39-1.44 0"></path>
+                  </svg>
+                  <span class="text-[#02082D] text-[12px] font-medium">
+                    Verified Customer
+                  </span>
+                </div>
+                <p class="text-[#465063] text-[14px] leading-[22px] mt-[12px]">
+                  When I first started using the app, I was pretty much
+                  invisible in the vast digital world...
+                </p>
+                <div class="flex items-center justify-between mt-[16px]">
+                  <div class="flex flex-col items-center">
+                    <p class="text-[#ff006b] text-[24px] font-extrabold">597</p>
+                    <span class="text-[#465063] text-[12px]">followers</span>
+                  </div>
+                  <svg width="139" height="37" viewBox="0 0 139 37" fill="none">
+                    <path
+                      opacity="0.1"
+                      d="M18.5 18.5L0 37H29.9999L48.5 18.5L29.9999 0H0L18.5 18.5Z"
+                      fill="#01C39D"></path>
+                    <path
+                      opacity="0.2"
+                      d="M48.5 18.5L30 37H59.9999L78.5 18.5L59.9999 0H30L48.5 18.5Z"
+                      fill="#01C39D"></path>
+                    <path
+                      opacity="0.5"
+                      d="M78.5 18.5L60 37H89.9999L108.5 18.5L89.9999 0H60L78.5 18.5Z"
+                      fill="#01C39D"></path>
+                    <path
+                      d="M108.5 18.5L90 37H120L138.5 18.5L120 0H90L108.5 18.5Z"
+                      fill="#01C39D"></path>
+                  </svg>
+                  <div class="flex flex-col items-center">
+                    <p class="text-[#00c891] text-[24px] font-extrabold">
+                      12.5k
+                    </p>
+                    <span class="text-[#465063] text-[12px]">followers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-slide bg-white w-[315px] m-0 rounded-[16px] shadow-[0_20px_60px_-10px_rgba(130,147,172,1)] pb-[16px] mx-auto">
+              <div class="rounded-[16px]">
+                <img
+                  src="https://web.smmhub.app/static/media/success-story-1.cd9b374eedfcf38ad7e8.jpg"
+                  alt="Profile"
+                  class="rounded-[12px] w-full h-auto" />
+              </div>
+              <div class="p-[16px]">
+                <p class="text-[#02082D] text-[18px] font-bold leading-[24px]">
+                  Kate Smith
+                </p>
+                <div class="flex items-center mt-[8px] gap-[8px]">
+                  <svg
+                    class="w-[16px] h-[16px] text-[#00c891]"
+                    focusable="false"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69zM9.38 16.01 7 13.61a.9959.9959 0 0 1 0-1.41l.07-.07c.39-.39 1.03-.39 1.42 0l1.61 1.62 5.15-5.16c.39-.39 1.03-.39 1.42 0l.07.07c.39.39.39 1.02 0 1.41l-5.92 5.94c-.41.39-1.04.39-1.44 0"></path>
+                  </svg>
+                  <span class="text-[#02082D] text-[12px] font-medium">
+                    Verified Customer
+                  </span>
+                </div>
+                <p class="text-[#465063] text-[14px] leading-[22px] mt-[12px]">
+                  When I first started using the app, I was pretty much
+                  invisible in the vast digital world...
+                </p>
+                <div class="flex items-center justify-between mt-[16px]">
+                  <div class="flex flex-col items-center">
+                    <p class="text-[#ff006b] text-[24px] font-extrabold">597</p>
+                    <span class="text-[#465063] text-[12px]">followers</span>
+                  </div>
+                  <svg width="139" height="37" viewBox="0 0 139 37" fill="none">
+                    <path
+                      opacity="0.1"
+                      d="M18.5 18.5L0 37H29.9999L48.5 18.5L29.9999 0H0L18.5 18.5Z"
+                      fill="#01C39D"></path>
+                    <path
+                      opacity="0.2"
+                      d="M48.5 18.5L30 37H59.9999L78.5 18.5L59.9999 0H30L48.5 18.5Z"
+                      fill="#01C39D"></path>
+                    <path
+                      opacity="0.5"
+                      d="M78.5 18.5L60 37H89.9999L108.5 18.5L89.9999 0H60L78.5 18.5Z"
+                      fill="#01C39D"></path>
+                    <path
+                      d="M108.5 18.5L90 37H120L138.5 18.5L120 0H90L108.5 18.5Z"
+                      fill="#01C39D"></path>
+                  </svg>
+                  <div class="flex flex-col items-center">
+                    <p class="text-[#00c891] text-[24px] font-extrabold">
+                      12.5k
+                    </p>
+                    <span class="text-[#465063] text-[12px]">followers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      function startCountdown(durationInMinutes, displayElements) {
+        if (!localStorage.getItem("timerEndTime")) {
+          const endTime = Date.now() + durationInMinutes * 60 * 1000;
+          localStorage.setItem("timerEndTime", endTime);
+        }
+
+        const timerEndTime = parseInt(localStorage.getItem("timerEndTime"), 10);
+
+        function updateTimer() {
+          const currentTime = Date.now();
+          const remainingTime = Math.max(
+            0,
+            Math.floor((timerEndTime - currentTime) / 1000)
+          );
+
+          const minutes = Math.floor(remainingTime / 60);
+          const seconds = remainingTime % 60;
+
+          // Оновлюємо всі елементи
+          displayElements.forEach(element => {
+            element.innerHTML = `
+          <div class="flex items-baseline">
+            <span class="text-[20px] font-semibold leading-[24px] tracking-[-0.02em]">
+              ${String(minutes).padStart(2, "0")}
+            </span>
+            <span class="text-[14px] font-semibold leading-[24px] tracking-[-0.02em] ml-[2px]">
+              m
+            </span>
+            <span class="text-[20px] font-semibold leading-[24px] tracking-[-0.02em] mx-[5px]">
+              :
+            </span>
+            <span class="text-[20px] font-semibold leading-[24px] tracking-[-0.02em]">
+              ${String(seconds).padStart(2, "0")}
+            </span>
+            <span class="text-[14px] font-semibold leading-[24px] tracking-[-0.02em] ml-[2px]">
+              s
+            </span>
+          </div>
+          `;
+          });
+
+          if (remainingTime === 0) {
+            clearInterval(timerInterval);
+            localStorage.removeItem("timerEndTime");
+          }
+        }
+
+        updateTimer();
+        const timerInterval = setInterval(updateTimer, 1000);
+      }
+
+      // Запуск таймера для обох елементів
+      const countdownElement = document.getElementById("countdown");
+      const bannerTimerElement = document.getElementById("banner-timer");
+      startCountdown(15, [countdownElement, bannerTimerElement]);
+
+      // Логіка відображення банера
+      const banner = document.getElementById("fixed-banner");
+      const scrollStart = document.getElementById("scroll-banner-start");
+
+      window.addEventListener("scroll", () => {
+        const scrollStartTop = scrollStart.getBoundingClientRect().top;
+        if (scrollStartTop <= 0) {
+          banner.classList.remove("hidden"); // Показуємо банер
+        } else {
+          banner.classList.add("hidden"); // Ховаємо банер
+        }
+      });
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        loop: true,
+        breakpoints: {
+          // Планшети та телефони (ширина від 640px до 1023px)
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 16, // Відстань між слайдами
+          },
+          // Десктопи (ширина 1024px і більше)
+          1024: {
+            slidesPerView: 1,
+            spaceBetween: 24, // Збільшена відстань між слайдами
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
