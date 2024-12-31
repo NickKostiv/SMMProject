@@ -9,6 +9,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
+    <link rel="icon" href="https://web.smmhub.app/favicon.ico" />
     <title>SMMHUB</title>
     <style>
       body {
@@ -84,19 +85,17 @@
           <div
             class="absolute inset-0 bg-cover bg-center image-background"></div>
 
-          <!-- Foreground Image -->
           <div
             id="foreground"
             class="absolute inset-0 bg-cover bg-center image-foreground"></div>
 
-          <!-- Slider -->
           <div
             id="slider"
             class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10"
             style="left: 50%"></div>
         </div>
       </div>
-      <!-- Кнопки -->
+
       <div
         class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50 px-[20px] pb-[20px]">
         <div class="flex justify-between max-w-[404px] mx-auto gap-4">
@@ -113,78 +112,10 @@
         </div>
       </div>
     </section>
+    <script src="/logic/cookies.js"></script>
+    <script src="/logic/background-removal.js"></script>
+
     <script>
-      const slider = document.getElementById("slider");
-      const foreground = document.getElementById("foreground");
-      let isDragging = false;
-
-      function preventScroll(e) {
-        e.preventDefault();
-      }
-
-      slider.addEventListener("mousedown", startDrag);
-      slider.addEventListener("touchstart", startDrag, { passive: false }); // passive: false дозволяє блокувати скрол
-
-      document.addEventListener("mouseup", stopDrag);
-      document.addEventListener("touchend", stopDrag);
-
-      document.addEventListener("mousemove", moveSlider);
-      document.addEventListener("touchmove", moveSlider, { passive: false }); // passive: false дозволяє блокувати скрол
-
-      function startDrag(e) {
-        isDragging = true;
-
-        document.body.addEventListener("touchmove", preventScroll, {
-          passive: false,
-        });
-      }
-
-      function stopDrag() {
-        isDragging = false;
-
-        document.body.removeEventListener("touchmove", preventScroll);
-      }
-
-      function moveSlider(e) {
-        if (!isDragging) return;
-
-        const container = slider.parentElement;
-        const rect = container.getBoundingClientRect();
-        let newX;
-
-        if (e.touches) {
-          newX = e.touches[0].clientX - rect.left;
-        } else {
-          newX = e.clientX - rect.left;
-        }
-
-        newX = Math.max(0, Math.min(newX, rect.width));
-
-        slider.style.left = `${newX}px`;
-
-        const percentage = (newX / rect.width) * 100;
-        foreground.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-      }
-
-      function getCookie(name) {
-        const cookies = document.cookie.split("; ");
-        for (let cookie of cookies) {
-          const [key, value] = cookie.split("=");
-          if (key === name) {
-            return decodeURIComponent(value);
-          }
-        }
-        return null;
-      }
-
-      function setCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        document.cookie = `${name}=${encodeURIComponent(
-          JSON.stringify(value)
-        )}; expires=${date.toUTCString()}; path=/`;
-      }
-
       const pageId = "page-24";
 
       document.addEventListener("DOMContentLoaded", () => {

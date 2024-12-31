@@ -10,6 +10,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
+    <link rel="icon" href="https://web.smmhub.app/favicon.ico" />
     <title>SMMHUB</title>
     <style>
       body {
@@ -70,7 +71,6 @@
         </h2>
       </div>
 
-      <!-- Options -->
       <div id="options" class="px-6 space-y-[8px]">
         <button
           class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
@@ -114,10 +114,8 @@
         </button>
       </div>
 
-      <!-- Hidden Input -->
       <input type="hidden" id="hiddenInput" name="selectedOption" />
 
-      <!-- Next Button -->
       <div
         class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50">
         <div class="relative">
@@ -133,100 +131,15 @@
         </div>
       </div>
     </div>
+    <script src="/logic/cookies.js"></script>
     <script>
-      function getCookie(name) {
-        const cookies = document.cookie.split("; ");
-        for (let cookie of cookies) {
-          const [key, value] = cookie.split("=");
-          if (key === name) {
-            return decodeURIComponent(value);
-          }
-        }
-        return null;
-      }
-
-      function setCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        document.cookie = `${name}=${encodeURIComponent(
-          JSON.stringify(value)
-        )}; expires=${date.toUTCString()}; path=/`;
-      }
-
-      const options = document.getElementById("options");
-      const hiddenInput = document.getElementById("hiddenInput");
-      const nextButton = document.getElementById("nextButton");
-
-      const pageId = "page-28";
-
-      function updateNextButton(isOptionSelected) {
-        if (isOptionSelected) {
-          nextButton.style.backgroundColor = "rgb(2, 8, 45)";
-          nextButton.classList.remove("cursor-not-allowed");
-          nextButton.classList.add("cursor-pointer");
-          nextButton.disabled = false;
-        } else {
-          nextButton.style.backgroundColor = "#e0e0e0";
-          nextButton.classList.add("cursor-not-allowed");
-          nextButton.classList.remove("cursor-pointer");
-          nextButton.disabled = true;
-        }
-      }
-
-      function resetOptions() {
-        document.querySelectorAll(".option").forEach(option => {
-          option.classList.remove("bg-[#00c891]", "text-white");
-          option.classList.add("bg-gray-100", "text-[#535c6e]");
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const savedValue = getCookie(`selectedOptions-${pageId}`);
-        let isOptionSelected = false;
-
-        resetOptions();
-
-        if (savedValue) {
-          const selectedOption = Array.from(
-            document.querySelectorAll(".option")
-          ).find(option => option.dataset.value === JSON.parse(savedValue));
-
-          if (selectedOption) {
-            selectedOption.classList.add("bg-[#00c891]", "text-white");
-            selectedOption.classList.remove("bg-gray-100", "text-[#535c6e]");
-            hiddenInput.value = JSON.parse(savedValue);
-            isOptionSelected = true;
-          }
-        }
-
-        updateNextButton(isOptionSelected);
-      });
-
-      options.addEventListener("click", e => {
-        if (e.target.closest(".option")) {
-          const option = e.target.closest(".option");
-
-          resetOptions();
-
-          option.classList.remove("bg-gray-100", "text-[#535c6e]");
-          option.classList.add("bg-[#00c891]", "text-white");
-
-          const selectedValue = option.dataset.value;
-
-          hiddenInput.value = selectedValue;
-
-          updateNextButton(true);
-        }
-      });
-
-      nextButton.addEventListener("click", () => {
-        const selectedValue = hiddenInput.value;
-        if (selectedValue) {
-          setCookie(`selectedOptions-${pageId}`, selectedValue, 1);
-
-          window.location.href = "page-29.html";
-        }
-      });
+      initializePage(
+        "options",
+        "hiddenInput",
+        "nextButton",
+        "page-28",
+        "page-29.html"
+      );
     </script>
   </body>
 </html>

@@ -19,19 +19,17 @@
       }
       #options button {
         position: relative;
-        overflow: hidden; /* Щоб ripple-ефект не виходив за межі кнопки */
+        overflow: hidden;
       }
       .paypal-text {
         font-family: "PayPal-Sans";
-        src: url("webfont.eot"); /* IE9 Compat Modes */
+        src: url("webfont.eot");
         src: url("webfont.eot?#iefix") format("embedded-opentype"),
-          /* IE6-IE8 */
-            url("https://www.paypalobjects.com/digitalassets/c/paypal-ui/fonts/PayPalSansSmall-Regular.woff2")
+          url("https://www.paypalobjects.com/digitalassets/c/paypal-ui/fonts/PayPalSansSmall-Regular.woff2")
             format("woff2"),
-          /* Super Modern Browsers */ url("webfont.woff") format("woff"),
-          /* Pretty Modern Browsers */ url("webfont.ttf") format("truetype"),
-          /* Safari, Android, iOS */ url("webfont.svg#svgFontName")
-            format("svg"); /* Legacy iOS */
+          url("webfont.woff") format("woff"),
+          url("webfont.ttf") format("truetype"),
+          url("webfont.svg#svgFontName") format("svg");
       }
 
       @keyframes ripple {
@@ -39,15 +37,6 @@
           opacity: 0;
           transform: scale(2);
         }
-      }
-
-      button span.ripple {
-        position: absolute;
-        border-radius: 50%;
-        transform: scale(0);
-        animation: ripple 0.6s ease-out;
-        background-color: rgba(0, 0, 0, 0.4); /* Колір ripple */
-        pointer-events: none; /* Щоб не впливати на кліки */
       }
     </style>
   </head>
@@ -99,7 +88,7 @@
           <button
             onclick="handleButtonClick('applePay', event)"
             id="applePayBtn"
-            class="flex items-center justify-center w-[105px] h-[88px] bg-white text-[#02082D] rounded-[12px] transition-shadow filter grayscale opacity-50 shadow-none">
+            class="flex items-center justify-center w-[105px] h-[88px] bg-white text-[#02082D] rounded-[12px] transition-shadow filter grayscale opacity-50 ripple shadow-none">
             <svg
               width="24"
               height="24"
@@ -132,7 +121,7 @@
           <button
             onclick="handleButtonClick('creditCard', event)"
             id="creditCardBtn"
-            class="flex items-center justify-center w-[105px] h-[88px] bg-white text-[#02082D] rounded-[12px] transition-shadow filter grayscale opacity-50 shadow-none">
+            class="flex items-center justify-center w-[105px] h-[88px] bg-white text-[#02082D] rounded-[12px] transition-shadow filter grayscale opacity-50 ripple shadow-none">
             <svg
               width="84"
               height="13"
@@ -148,7 +137,7 @@
           <button
             onclick="handleButtonClick('paypal', event)"
             id="paypalBtn"
-            class="flex items-center justify-center w-[105px] h-[88px] bg-white text-[#02082D] rounded-[12px] transition-shadow filter grayscale opacity-50 shadow-none">
+            class="flex items-center justify-center w-[105px] h-[88px] bg-white text-[#02082D] rounded-[12px] transition-shadow filter grayscale opacity-50 ripple shadow-none">
             <img src="/assets/paypal.svg" alt="" />
           </button>
         </div>
@@ -262,7 +251,7 @@
           <div id="paypalContent" style="display: none">
             <div
               class="w-full relative flex justify-center items-center pb-[10px]">
-              <button
+              <a
                 class="exclude py-[8px] mt-[22px] relative h-[50px] box-border cursor-not-allowed select-none align-middle appearance-none text-white bg-[#2C2E2F] w-full shadow-none text-base font-semibold leading-5 capitalize max-w-[404px] rounded-[4px]">
                 <svg
                   class="mx-auto text-center"
@@ -290,7 +279,7 @@
                     fill="#ffffff"
                     d="M 95.337 3.3 L 92.137 23.6 C 92.037 24 92.337 24.3 92.737 24.3 L 95.937 24.3 C 96.437 24.3 96.937 23.9 97.037 23.4 L 100.237 3.5 C 100.337 3.1 100.037 2.8 99.637 2.8 L 96.037 2.8 C 95.637 2.8 95.437 3 95.337 3.3 Z" />
                 </svg>
-              </button>
+              </a>
             </div>
             <p class="paypal-text text-center font-medium">
               The safer, easier way to pay
@@ -565,151 +554,6 @@
       </div>
     </section>
 
-    <script>
-      function handleButtonClick(paymentType, event) {
-        const buttons = document.querySelectorAll("button:not(.exclude)");
-        const dynamicContent = document.getElementById("dynamicContent");
-
-        // Елементи, що відповідають різним платіжним методам
-        const appleContent = document.querySelector("#appleContent");
-        const creditCardContent = document.querySelector("#creditCardContent");
-        const paypalContent = document.querySelector("#paypalContent");
-
-        // Скидання стилів для всіх кнопок
-        buttons.forEach(btn => {
-          btn.classList.remove(
-            "shadow-[0_0_0_2px_rgba(0,200,145)]",
-            "grayscale",
-            "opacity-50",
-            "active-button"
-          );
-          btn.classList.add("grayscale", "opacity-50");
-        });
-
-        // Додавання активного стилю для натиснутої кнопки
-        const clickedButton = event.target.closest("button");
-        clickedButton.classList.add(
-          "shadow-[0_0_0_2px_rgba(0,200,145)]",
-          "active-button"
-        );
-        clickedButton.classList.remove("grayscale", "opacity-50");
-
-        // Приховування всього контенту
-        appleContent.style.display = "none";
-        creditCardContent.style.display = "none";
-        paypalContent.style.display = "none";
-
-        // Відображення відповідного контенту
-        if (paymentType === "applePay") {
-          appleContent.style.display = "block";
-        } else if (paymentType === "creditCard") {
-          creditCardContent.style.display = "block";
-        } else if (paymentType === "paypal") {
-          paypalContent.style.display = "block";
-        }
-      }
-
-      // Додавання обробників подій для кнопок
-      document
-        .getElementById("applePayBtn")
-        .addEventListener("click", event => {
-          handleButtonClick("applePay", event);
-        });
-
-      document
-        .getElementById("creditCardBtn")
-        .addEventListener("click", event => {
-          handleButtonClick("creditCard", event);
-        });
-
-      document.getElementById("paypalBtn").addEventListener("click", event => {
-        handleButtonClick("paypal", event);
-      });
-
-      const cardInput = document.getElementById("cardNumber");
-      // Card input
-      cardInput.addEventListener("input", event => {
-        let value = event.target.value.replace(/\s+/g, ""); // Видаляємо пробіли
-
-        // Додаємо пробіли кожні 4 символи
-        value = value.replace(/(\d{4})/g, "$1 ").trim();
-
-        event.target.value = value; // Оновлюємо значення інпуту
-      });
-
-      const expiryInput = document.getElementById("cardExpiry");
-      // Expire input
-      expiryInput.addEventListener("input", event => {
-        let value = event.target.value.replace(/\D+/g, ""); // Видаляємо всі символи, крім цифр
-
-        // Обмежуємо місяць до 2 символів і перевіряємо його коректність
-        if (value.length >= 1) {
-          const month = parseInt(value.slice(0, 2), 10);
-          if (month > 12) {
-            value = "12" + value.slice(2); // Змінюємо місяць на максимальний (12)
-          }
-        }
-
-        // Додаємо роздільник " / " після перших двох цифр
-        if (value.length > 2) {
-          value = value.slice(0, 2) + " / " + value.slice(2, 4);
-        }
-
-        event.target.value = value; // Оновлюємо значення інпуту
-      });
-
-      expiryInput.setAttribute("maxlength", 7); // Встановлюємо максимальну довжину значення інпуту
-
-      // Confirm button validation logic
-      const nextButton = document.getElementById("nextButton");
-      const formInputs = document.querySelectorAll(
-        "input[type='text'], input[type='number'], input[type='email']"
-      ); // Поля форми
-      const checkbox = document.querySelector("input[type='checkbox']"); // Чекбокс
-
-      // Функція для перевірки валідності полів форми
-      function isFormValid() {
-        let allValid = true;
-
-        // Перевіряємо всі текстові поля
-        formInputs.forEach(input => {
-          if (!input.value.trim()) {
-            allValid = false;
-          }
-        });
-
-        // Перевіряємо, чи чекбокс відмічений
-        if (!checkbox.checked) {
-          allValid = false;
-        }
-
-        return allValid;
-      }
-
-      // Функція для оновлення стану кнопки
-      function updateNextButton() {
-        if (isFormValid()) {
-          nextButton.style.backgroundColor = "rgb(2, 8, 45)";
-          nextButton.classList.remove("cursor-not-allowed");
-          nextButton.classList.add("cursor-pointer");
-          nextButton.disabled = false;
-        } else {
-          nextButton.style.backgroundColor = "#e0e0e0";
-          nextButton.classList.add("cursor-not-allowed");
-          nextButton.classList.remove("cursor-pointer");
-          nextButton.disabled = true;
-        }
-      }
-
-      // Додаємо обробники подій
-      formInputs.forEach(input => {
-        input.addEventListener("input", updateNextButton); // Перевіряємо при кожній зміні у полях
-      });
-
-      checkbox.addEventListener("change", updateNextButton); // Перевіряємо при зміні стану чекбоксу
-
-      // Ініціалізуємо стан кнопки при завантаженні сторінки
-      updateNextButton();
-    </script>
+    <script src="/logic/payment-logic.js"></script>
   </body>
 </html>

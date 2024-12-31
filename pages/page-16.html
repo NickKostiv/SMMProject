@@ -9,6 +9,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
+    <link rel="icon" href="https://web.smmhub.app/favicon.ico" />
     <title>SMMHUB</title>
     <style>
       body {
@@ -35,7 +36,6 @@
     <section
       class="flex flex-col w-full max-w-[444px] mx-auto px-[20px] box-border overflow-y-scroll h-[100vh] min-h-[700px]">
       <div class="animate-fade-in">
-        <!-- Заголовок -->
         <div class="text-center mt-[16px]">
           <h1
             class="text-[rgb(47,47,55)] font-montserrat text-[20px] font-semibold leading-[28px] tracking-[0.5em]">
@@ -43,7 +43,6 @@
           </h1>
         </div>
 
-        <!-- Прогрес -->
         <div class="flex justify-center items-center gap-2 mt-[18px]">
           <div
             class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
@@ -60,7 +59,6 @@
             class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
         </div>
 
-        <!-- Питання -->
         <div class="mt-[32px] text-center">
           <h1
             class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em]">
@@ -74,7 +72,6 @@
           </h3>
         </div>
 
-        <!-- Зображення -->
         <div class="flex justify-center">
           <img
             src="/assets/some-one-to-help-you.f54615d10c1684641155.png"
@@ -82,7 +79,7 @@
             alt="Take a short quiz illustration" />
         </div>
       </div>
-      <!-- Кнопки -->
+
       <div
         class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50 px-[20px] pb-[20px]">
         <div class="flex justify-between max-w-[404px] mx-auto gap-4">
@@ -99,32 +96,10 @@
         </div>
       </div>
     </section>
+    <script src="/logic/cookies.js"></script>
     <script>
-      // Функція для отримання конкретного кукі
-      function getCookie(name) {
-        const cookies = document.cookie.split("; ");
-        for (let cookie of cookies) {
-          const [key, value] = cookie.split("=");
-          if (key === name) {
-            return decodeURIComponent(value);
-          }
-        }
-        return null;
-      }
-
-      // Функція для встановлення кукі
-      function setCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        document.cookie = `${name}=${encodeURIComponent(
-          JSON.stringify(value)
-        )}; expires=${date.toUTCString()}; path=/`;
-      }
-
-      // Унікальний ідентифікатор сторінки
       const pageId = "page-16";
 
-      // Оновлюємо опцію на основі значення в кукі
       document.addEventListener("DOMContentLoaded", () => {
         const savedValue = getCookie(`selectedOptions-${pageId}`);
         if (savedValue) {
@@ -132,7 +107,6 @@
         }
       });
 
-      // Логіка для кнопок
       document.getElementById("yesButton").addEventListener("click", () => {
         setCookie(
           `selectedOptions-${pageId}`,

@@ -9,6 +9,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
+    <link rel="icon" href="https://web.smmhub.app/favicon.ico" />
     <title>SMMHUB</title>
     <style>
       body {
@@ -25,7 +26,7 @@
           transform: translateY(0);
         }
       }
-      /* class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option" */
+
       .animate-fade-in {
         animation: fadeIn 1s ease-in-out;
       }
@@ -59,7 +60,7 @@
           </p>
         </div>
       </div>
-      <!-- Кнопка -->
+
       <div
         class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50">
         <p
@@ -80,56 +81,5 @@
       </div>
     </section>
   </body>
-  <script>
-    // Функція для отримання конкретного кукі
-    function getCookie(name) {
-      const cookies = document.cookie.split("; ");
-      for (let cookie of cookies) {
-        const [key, value] = cookie.split("=");
-        if (key === name) {
-          return decodeURIComponent(value);
-        }
-      }
-      return null;
-    }
-
-    // Функція для встановлення кукі
-    function setCookie(name, value, days) {
-      const date = new Date();
-      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-      document.cookie = `${name}=${encodeURIComponent(
-        JSON.stringify(value)
-      )}; expires=${date.toUTCString()}; path=/`;
-    }
-
-    // Унікальний ідентифікатор сторінки
-    const pageId = "page-19";
-
-    // Оновлюємо опцію на основі значення в кукі
-    document.addEventListener("DOMContentLoaded", () => {
-      const savedValue = getCookie(`selectedOptions-${pageId}`);
-      if (savedValue) {
-        console.log("Saved value from cookie:", JSON.parse(savedValue));
-      }
-    });
-
-    // Логіка для кнопок
-    document.getElementById("yesButton").addEventListener("click", () => {
-      setCookie(
-        `selectedOptions-${pageId}`,
-        "Someone help me with Content Creation",
-        1
-      );
-      window.location.href = "page-15.html";
-    });
-
-    document.getElementById("noButton").addEventListener("click", () => {
-      setCookie(
-        `selectedOptions-${pageId}`,
-        "Someone dont help me with Content Creation",
-        1
-      );
-      window.location.href = "page-20.html";
-    });
-  </script>
+  <script></script>
 </html>

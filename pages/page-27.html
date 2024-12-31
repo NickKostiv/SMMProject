@@ -10,6 +10,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
+    <link rel="icon" href="https://web.smmhub.app/favicon.ico" />
     <title>SMMHUB</title>
     <style>
       body {
@@ -116,87 +117,14 @@
         </div>
       </div>
     </div>
+    <script src="/logic/cookies.js"></script>
     <script>
-      function getCookie(name) {
-        const cookies = document.cookie.split("; ");
-        for (let cookie of cookies) {
-          const [key, value] = cookie.split("=");
-          if (key === name) {
-            return decodeURIComponent(value);
-          }
-        }
-        return null;
-      }
-
-      function setCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        document.cookie = `${name}=${encodeURIComponent(
-          JSON.stringify(value)
-        )}; expires=${date.toUTCString()}; path=/`;
-      }
-
-      const inputValue = document.getElementById("inputValue");
-      const nextButton = document.getElementById("nextButton");
-
-      const pageId = "page-27";
-
-      function updateNextButton(isInputValid) {
-        if (isInputValid) {
-          nextButton.classList.remove(
-            "bg-gray-300",
-            "text-gray-500",
-            "cursor-not-allowed"
-          );
-          nextButton.classList.add(
-            "bg-[rgb(2,8,45)]",
-
-            "text-white",
-            "cursor-pointer"
-          );
-          nextButton.disabled = false;
-        } else {
-          nextButton.classList.add(
-            "bg-gray-300",
-            "text-gray-500",
-            "cursor-not-allowed"
-          );
-          nextButton.classList.remove(
-            "bg-blue-600",
-            "text-white",
-            "cursor-pointer"
-          );
-          nextButton.disabled = true;
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const savedValue = getCookie(`inputValue-${pageId}`);
-
-        if (savedValue) {
-          inputValue.value = JSON.parse(savedValue);
-          updateNextButton(true);
-        }
-      });
-
-      inputValue.addEventListener("input", () => {
-        const value = inputValue.value.trim();
-
-        if (value && !isNaN(value) && Number(value) > 0) {
-          updateNextButton(true);
-        } else {
-          updateNextButton(false);
-        }
-      });
-
-      nextButton.addEventListener("click", () => {
-        const value = inputValue.value.trim();
-        if (value) {
-          setCookie(`inputValue-${pageId}`, value, 1);
-
-          window.location.href = "page-28.html";
-        }
-      });
+      initializeInputPage(
+        "inputValue",
+        "nextButton",
+        "page-27",
+        "page-28.html"
+      );
     </script>
   </body>
 </html>

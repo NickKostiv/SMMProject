@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Animation Example</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -11,6 +10,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
+
+    <link rel="icon" href="https://web.smmhub.app/favicon.ico" />
+    <title>SMMHUB</title>
     <style>
       body {
         font-family: Montserrat;
@@ -21,7 +23,6 @@
     class="w-full max-w-[444px] mx-auto text-white bg-white overflow-y-auto">
     <div
       class="w-full max-w-[444px] flex items-center justify-center overflow-hidden relative">
-      <!-- Step 1 -->
       <div id="step1" class="flex flex-col items-center absolute top-0 w-full">
         <div id="logo" class="transition-transform duration-1000">
           <img
@@ -49,11 +50,9 @@
         </div>
       </div>
 
-      <!-- Step 3 -->
       <div
         id="step3"
         class="relative top-0 left-0 mt-[20px] w-full h-[100vh] flex flex-col items-center opacity-0 transition-opacity duration-1000">
-        <!-- Логотип -->
         <div class="sm:mt-[35px]">
           <img
             src="/assets/big-logo.e52b41bd4f6b3ce1b19dc4bfdd07be47.svg"
@@ -61,7 +60,6 @@
             class="w-[110px] mx-auto" />
         </div>
 
-        <!-- Заголовок -->
         <div class="mt-[20px]">
           <p
             class="text-[#ee3fdf] text-[16px] font-bold leading-[22px] text-center">
@@ -75,16 +73,14 @@
 
         <div
           class="relative mt-[32px] w-[248px] bg-[url('https://web.smmhub.app/static/media/diadem.bcb0be47e904b2bac0276bcf13b9d65b.svg')] bg-no-repeat flex flex-col items-center">
-          <!-- Верхня частина: 4.7 та Average Rating -->
           <div class="flex-col">
             <div
               class="text-black flex flex-row justify-center items-center mx-auto mt-[-11.2px] mb-[-15px] gap-3">
-              <!-- 4.7 -->
               <span
                 class="text-black text-[48px] font-bold leading-[67px] tracking-[-0.02em]">
                 4.7
               </span>
-              <!-- Average Rating -->
+
               <span
                 class="m-0 text-[18px] font-[700] leading-[22px] tracking-[-0.02em] text-left">
                 Average
@@ -93,7 +89,6 @@
               </span>
             </div>
 
-            <!-- Зірочки -->
             <div class="flex justify-center space-x-1 mt-[10px]">
               <span class="text-[rgb(231,203,150)] text-[20px]">★</span>
               <span class="text-[rgb(231,203,150)] text-[20px]">★</span>
@@ -104,12 +99,10 @@
           </div>
         </div>
 
-        <!-- Слайдер -->
         <div class="swiper-container w-full min-w-[335px] px-[20px]">
           <div class="swiper-wrapper w-full mt-[44px]">
             <div
               class="swiper-slide h-[189px] flex flex-col bg-white text-[#02082D] shadow-[rgba(130,147,172,0.25)_0px_32px_20px_-20px] text-start p-[24px] transition-shadow duration-300 ease-in-out overflow-hidden rounded-[12px] border border-[rgba(130,147,172,0.2)]">
-              <!-- Верхній блок -->
               <div class="flex flex-row items-start space-x-4">
                 <img
                   src="/assets/ava1.png"
@@ -135,7 +128,7 @@
                   </div>
                 </div>
               </div>
-              <!-- Нижній блок -->
+
               <div>
                 <p
                   class="mt-[12px] text-[#465063] font-montserrat text-[12px] leading-[22px] tracking-[-0.02em] text-left">
@@ -145,7 +138,6 @@
               </div>
             </div>
 
-            <!-- Слайд 2 -->
             <div
               class="swiper-slide h-[189px] flex flex-col bg-white text-[#02082D] shadow-[rgba(130,147,172,0.25)_0px_32px_20px_-20px] text-start p-[24px] transition-shadow duration-300 ease-in-out overflow-hidden rounded-[12px] border border-[rgba(130,147,172,0.2)]">
               <div class="flex flex-row items-start space-x-4">
@@ -182,7 +174,6 @@
               </div>
             </div>
 
-            <!-- Слайд 3 -->
             <div
               class="swiper-slide h-[189px] flex flex-col bg-white text-[#02082D] shadow-[rgba(130,147,172,0.25)_0px_32px_20px_-20px] text-start p-[24px] transition-shadow duration-300 ease-in-out overflow-hidden rounded-[12px] border border-[rgba(130,147,172,0.2)]">
               <div class="flex flex-row items-start space-x-4">
@@ -220,7 +211,6 @@
             </div>
           </div>
         </div>
-        <!-- Слайдер -->
 
         <div class="footer fixed bottom-[20px] left-0 right-0">
           <div class="w-full flex justify-center items-center px-[20px]">
@@ -234,45 +224,7 @@
       </div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const logo = document.getElementById("logo");
-        const subtitle = document.getElementById("subtitle");
-        const text = document.getElementById("text");
-        const step1 = document.getElementById("step1");
-        const step3 = document.getElementById("step3");
-
-        // Step 1: Зменшення і підняття
-        setTimeout(() => {
-          logo.style.transform = "scale(0.27) translateY(-300px)";
-          subtitle.style.transform = "scale(0.31) translateY(-1080px)";
-          text.style.transform = "scale(0.31) translateY(-950px)";
-          logo.style.transition = "transform 1s";
-          subtitle.style.transition = "transform 1s";
-          text.style.transition = "transform 1s";
-        }, 1000);
-
-        // Зникнення Step 1
-        setTimeout(() => {
-          step1.style.opacity = "0";
-          step1.style.transition = "opacity 1s";
-        }, 2000);
-
-        // Показ Step 3
-        setTimeout(() => {
-          step3.style.opacity = "1";
-          step3.style.transition = "opacity 1s";
-
-          // Ініціалізація Swiper після показу Step 3
-          new Swiper(".swiper-container", {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-          });
-        }, 3000);
-      });
-    </script>
-
+    <script src="/logic/carousel.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </body>
 </html>
