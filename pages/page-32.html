@@ -34,139 +34,140 @@
   </head>
   <body>
     <section
-      class="flex flex-col w-full max-w-[444px] mx-auto min-h-screen px-[20px] box-border overflow-y-scroll animate-fade-in">
-      <div
-        class="mt-[32px] flex text-black text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-        <h3 class="text-[24px] font-bold leading-[34px] tracking-[0em]">
-          Analyzing your answers...
-        </h3>
-      </div>
-
-      <!-- Progress Bars -->
-
-      <div>
+      class="flex flex-col w-full max-w-[444px] mx-auto min-h-screen px-[20px] box-border overflow-y-scroll">
+      <div class="animate-fade-in">
         <div
-          class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
-          id="progress-container-1">
-          <p class="flex items-center">
-            <svg
-              id="check-icon-1"
-              class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24">
-              <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-            </svg>
-
-            Analyzing your posting habits
-          </p>
-          <span id="percentage-1">0%</span>
+          class="mt-[32px] flex text-black text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+          <h3 class="text-[24px] font-bold leading-[34px] tracking-[0em]">
+            Analyzing your answers...
+          </h3>
         </div>
-        <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
+
+        <!-- Progress Bars -->
+
+        <div>
           <div
-            id="progress-bar-1"
-            class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
-            style="width: 0%"></div>
-        </div>
-      </div>
+            class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
+            id="progress-container-1">
+            <p class="flex items-center">
+              <svg
+                id="check-icon-1"
+                class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+              </svg>
 
-      <div>
-        <div
-          class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
-          id="progress-container-2">
-          <p class="flex items-center">
-            <svg
-              id="check-icon-2"
-              class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24">
-              <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-            </svg>
-
-            Estimating time you can save
-          </p>
-          <span id="percentage-2">0%</span>
-        </div>
-        <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
-          <div
-            id="progress-bar-2"
-            class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
-            style="width: 0%"></div>
-        </div>
-      </div>
-
-      <div>
-        <div
-          class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
-          id="progress-container-3">
-          <p class="flex items-center">
-            <svg
-              id="check-icon-3"
-              class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24">
-              <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-            </svg>
-
-            Reviewing your preferences
-          </p>
-          <span id="percentage-3">0%</span>
-        </div>
-        <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
-          <div
-            id="progress-bar-3"
-            class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
-            style="width: 0%"></div>
-        </div>
-      </div>
-
-      <!-- Modal -->
-      <div
-        id="modal"
-        class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50 hidden">
-        <div
-          class="bg-white text-[#02082d] shadow-md pt-[24px] rounded-[24px] w-[270px] text-center">
-          <p
-            id="modal-text"
-            class="text-[16px] mb-4 px-[24px] font-semibold"></p>
-          <div class="flex flex-row border-t border-gray-300/20 p-0">
-            <!-- "No" Button -->
-            <button
-              id="modal-no"
-              class="inline-flex items-center justify-center relative box-border bg-transparent cursor-pointer select-none align-middle appearance-none min-w-[64px] w-full shadow-none font-montserrat text-[16px] font-normal leading-[20px] text-gray-800 capitalize outline-none border-0 p-4">
-              No
-            </button>
-            <!-- "Yes" Button -->
-            <button
-              id="modal-yes"
-              class="inline-flex items-center justify-center relative box-border bg-transparent cursor-pointer select-none align-middle appearance-none min-w-[64px] w-full shadow-none font-montserrat text-[16px] font-bold leading-[20px] text-green-500 capitalize outline-none border-l border-gray-300/20 p-4 transition-colors duration-250 ease-in-out">
-              Yes
-            </button>
+              Analyzing your posting habits
+            </p>
+            <span id="percentage-1">0%</span>
+          </div>
+          <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
+            <div
+              id="progress-bar-1"
+              class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
+              style="width: 0%"></div>
           </div>
         </div>
-      </div>
 
-      <div
-        class="relative mx-auto mt-[84px] w-[298px] h-[70px] bg-[url('https://web.smmhub.app/static/media/diadem-2.c09cae9d56dad5f794741a7e787002bb.svg')] bg-no-repeat bg-center flex flex-col justify-center">
-        <!-- Верхня частина: trusted by -->
-        <div class="flex flex-col items-center">
-          <div class="text-black flex flex-col items-center">
-            <span
-              class="text-black text-[14px] font-bold leading-[17px] tracking-[-0.02em]">
-              trusted by
-            </span>
-            <div class="flex justify-center">
+        <div>
+          <div
+            class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
+            id="progress-container-2">
+            <p class="flex items-center">
+              <svg
+                id="check-icon-2"
+                class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+              </svg>
+
+              Estimating time you can save
+            </p>
+            <span id="percentage-2">0%</span>
+          </div>
+          <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
+            <div
+              id="progress-bar-2"
+              class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
+              style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div>
+          <div
+            class="flex mt-[24px] justify-between items-center text-[#8293AC] font-montserrat text-[14px] font-normal leading-[22px] tracking-[-0.02em]"
+            id="progress-container-3">
+            <p class="flex items-center">
+              <svg
+                id="check-icon-3"
+                class="w-[20px] h-[20px] mr-2 text-green-500 fill-current hidden"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+              </svg>
+
+              Reviewing your preferences
+            </p>
+            <span id="percentage-3">0%</span>
+          </div>
+          <div class="relative mt-[8px] w-full h-[10px] bg-gray-200 rounded">
+            <div
+              id="progress-bar-3"
+              class="absolute h-2 bg-gradient-to-r from-green-500 to-cyan-500 rounded"
+              style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+          id="modal"
+          class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50 hidden">
+          <div
+            class="bg-white text-[#02082d] shadow-md pt-[24px] rounded-[24px] w-[270px] text-center">
+            <p
+              id="modal-text"
+              class="text-[16px] mb-4 px-[24px] font-semibold"></p>
+            <div class="flex flex-row border-t border-gray-300/20 p-0">
+              <!-- "No" Button -->
+              <button
+                id="modal-no"
+                class="inline-flex items-center justify-center relative box-border bg-transparent cursor-pointer select-none align-middle appearance-none min-w-[64px] w-full shadow-none font-montserrat text-[16px] font-normal leading-[20px] text-gray-800 capitalize outline-none border-0 p-4">
+                No
+              </button>
+              <!-- "Yes" Button -->
+              <button
+                id="modal-yes"
+                class="inline-flex items-center justify-center relative box-border bg-transparent cursor-pointer select-none align-middle appearance-none min-w-[64px] w-full shadow-none font-montserrat text-[16px] font-bold leading-[20px] text-green-500 capitalize outline-none border-l border-gray-300/20 p-4 transition-colors duration-250 ease-in-out">
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="relative mx-auto mt-[84px] w-[298px] h-[70px] bg-[url('https://web.smmhub.app/static/media/diadem-2.c09cae9d56dad5f794741a7e787002bb.svg')] bg-no-repeat bg-center flex flex-col justify-center">
+          <!-- Верхня частина: trusted by -->
+          <div class="flex flex-col items-center">
+            <div class="text-black flex flex-col items-center">
               <span
-                class="font-montserrat text-[28px] font-bold leading-[34px] tracking-[-0.02em] text-center capitalize">
-                800.000 Users
+                class="text-black text-[14px] font-bold leading-[17px] tracking-[-0.02em]">
+                trusted by
               </span>
+              <div class="flex justify-center">
+                <span
+                  class="font-montserrat text-[28px] font-bold leading-[34px] tracking-[-0.02em] text-center capitalize">
+                  800.000 Users
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
       <div class="footer fixed bottom-[20px] left-0 right-0">
         <div class="w-full flex justify-center items-center px-[20px]">
           <a

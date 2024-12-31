@@ -33,115 +33,113 @@
     </style>
   </head>
   <body class="bg-gray-50 flex justify-center min-h-screen font-sans">
-    <div
-      class="w-full max-w-md mx-auto rounded-[16px] overflow-hidden mt-[8px] animate-fade-in">
-      <div class="text-center">
-        <h1
-          class="text-[rgb(47,47,55)] font-montserrat text-[20px] font-semibold leading-[28px] tracking-[0.5em] text-center">
-          SMMHUB
-        </h1>
+    <div class="animate-fade-in">
+      <div
+        class="w-full max-w-md mx-auto rounded-[16px] overflow-hidden mt-[8px]">
+        <div class="text-center">
+          <h1
+            class="text-[rgb(47,47,55)] font-montserrat text-[20px] font-semibold leading-[28px] tracking-[0.5em] text-center">
+            SMMHUB
+          </h1>
+        </div>
+
+        <div class="flex justify-center items-center gap-2 mt-[18px]">
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div class="w-[28px] h-[8px] bg-[#00c891] rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
+          <div
+            class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
+        </div>
+
+        <div class="text-center px-6">
+          <h1
+            class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em] text-center mt-[18px]">
+            Your Instagram activity
+          </h1>
+
+          <h2
+            class="w-full font-montserrat text-[24px] font-bold leading-[34px] tracking-[0em] text-left my-[24px] mb-[16px]">
+            How many
+            <span
+              style="
+                background-image: linear-gradient(
+                  95.49deg,
+                  rgb(255, 0, 107) 10.61%,
+                  rgb(143, 0, 255) 60.31%,
+                  rgb(1, 164, 255) 95.66%
+                );
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              ">
+              Reels
+            </span>
+            did you make last week?
+          </h2>
+        </div>
+
+        <div id="options" class="px-6 space-y-[8px]">
+          <button
+            class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+            data-value="0">
+            <p
+              class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+              0
+            </p>
+          </button>
+          <button
+            class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+            data-value="1-2">
+            <p
+              class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+              1 - 2
+            </p>
+          </button>
+          <button
+            class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+            data-value="3 - 4">
+            <p
+              class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+              3 - 4
+            </p>
+          </button>
+          <button
+            class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+            data-value="5 - 6">
+            <p
+              class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+              5 - 6
+            </p>
+          </button>
+          <button
+            class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+            data-value="7 - 8">
+            <p
+              class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+              7 - 8
+            </p>
+          </button>
+          <button
+            class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
+            data-value="9 - 10">
+            <p
+              class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
+              9 - 10
+            </p>
+          </button>
+        </div>
+
+        <input type="hidden" id="hiddenInput" name="selectedOption" />
       </div>
-      <!-- Progress Indicator -->
-      <div class="flex justify-center items-center gap-2 mt-[18px]">
-        <div
-          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-        <div
-          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-        <div class="w-[28px] h-[8px] bg-[#00c891] rounded-full"></div>
-        <div
-          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-        <div
-          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-        <div
-          class="w-[10px] h-[8px] bg-[#8293ac] opacity-10 rounded-full"></div>
-        <div
-          class="w-[10px] h-[8px] bg-[#6a798e] opacity-10 rounded-full"></div>
-      </div>
 
-      <!-- Header -->
-      <div class="text-center px-6">
-        <h1
-          class="text-[#8293ac] font-montserrat text-[16px] font-normal leading-[26px] tracking-[0em] text-center mt-[18px]">
-          Your Instagram activity
-        </h1>
-
-        <h2
-          class="w-full font-montserrat text-[24px] font-bold leading-[34px] tracking-[0em] text-left my-[24px] mb-[16px]">
-          How many
-          <span
-            style="
-              background-image: linear-gradient(
-                95.49deg,
-                rgb(255, 0, 107) 10.61%,
-                rgb(143, 0, 255) 60.31%,
-                rgb(1, 164, 255) 95.66%
-              );
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            ">
-            Reels
-          </span>
-          did you make last week?
-        </h2>
-      </div>
-
-      <!-- Options -->
-      <div id="options" class="px-6 space-y-[8px]">
-        <button
-          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="0">
-          <p
-            class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            0
-          </p>
-        </button>
-        <button
-          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="1-2">
-          <p
-            class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            1 - 2
-          </p>
-        </button>
-        <button
-          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="3 - 4">
-          <p
-            class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            3 - 4
-          </p>
-        </button>
-        <button
-          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="5 - 6">
-          <p
-            class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            5 - 6
-          </p>
-        </button>
-        <button
-          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="7 - 8">
-          <p
-            class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            7 - 8
-          </p>
-        </button>
-        <button
-          class="w-full bg-gray-100 text-[#535c6e] py-3 px-4 active:bg-gray-400 transition-colors duration-300 rounded-[16px] flex items-center justify-center border border-transparent option"
-          data-value="9 - 10">
-          <p
-            class="text-[#535c6e] font-[Montserrat] text-[16px] font-normal leading-[26px] tracking-[-0.02em]">
-            9 - 10
-          </p>
-        </button>
-      </div>
-
-      <!-- Hidden Input -->
-      <input type="hidden" id="hiddenInput" name="selectedOption" />
-
-      <!-- Next Button -->
       <div
         class="fixed left-0 right-0 bottom-0 bg-white shadow-[0_0_15px_10px_rgb(255,255,255)] z-50">
         <div class="relative">
